@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>WaTeX Abbreviations/Keyboard Shortcuts</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="katex.min.css">
+	<link rel="stylesheet" href="wetex.css">
+	<script src="katex.min.js"></script>
+	<script src="keypress-2.1.5.min.js"></script>
+	<script src="wetex.js"></script>
+</head>
+<body>
+<h1>WeTeX Abbreviations/Keyboard Shortcuts</h1>
+<div class="content" onDblClick="makeEditableAllWaTeX(wetexListener);">
+
+<table border="1">
+<tr>
+<th>WeTeX input</th>
+<th>Shorcut key</th>
+<th>Description</th>
+<th>Sample Output</th>
+</tr>
+<tr><td>_</td><td>shift _</td><td>Subscript</td><td><span class="watex">$$A_d$$</span></td></tr>
+<tr><td>^</td><td>shift ^</td><td>Superscript</td><td><span class="watex">$$A^d$$</span></td></tr>
+<tr><td>\t[]</td><td>ctrl -</td><td>Tensor</td><td><span class="watex">$$A_{abc}^{ijk}$$</span></td></tr>
+<tr><td>\f[]</td><td>shift %</td><td>Fraction</td><td><span class="watex">$$\frac{a}{d}$$</span></td></tr>
+<tr><td>\r[]</td><td>shift !</td><td>Square root</td><td><span class="watex">$$\sqrt{456}$$</span></td></tr>
+<tr><td>\x[]</td><td>shift @</td><td>Unicode Text</td><td><span class="watex">$$\text{實}$$</span></td></tr>
+<tr><td>\q[]</td><td>shift #</td><td>Cube root</td><td><span class="watex">$$\sqrt[3]{082}$$</span></td></tr>
+<tr><td>\d[]</td><td>ctrl d</td><td>Differential derivative</td><td><span class="watex">$$\frac{\mathrm{d}X}{\mathrm{d}Z}$$</span></td></tr>
+<tr><td>\p[]</td><td>ctrl p</td><td>Partial derivative</td><td><span class="watex">$$\frac{\partial X}{\partial Z}$$</span></td></tr>
+<tr><td>\i[]</td><td>alt i</td><td>Integration</td><td><span class="watex">$$\int_{X}^{Z}{Y}\;\mathrm{d}{X}$$</span></td></tr>
+<tr><td>\s[]</td><td>alt s</td><td>Summation</td><td><span class="watex">$$\sum_{X}^{Y}{Z}$$</span></td></tr>
+<tr><td>(())</td><td>ctrl (</td><td>Left and right Parenthesis</td><td><span class="watex">$$\left(\frac{a}{z}\right)$$</span></td></tr>
+<tr><td>[[]]</td><td>ctrl [</td><td>Left and right brackets</td><td><span class="watex">$$\left[\frac{a}{z}\right]$$</span></td></tr>
+<tr><td>{{}}</td><td>ctrl {</td><td>Left and right braces</td><td><span class="watex">$$\left\{\frac{a}{z}\right\}$$</span></td></tr>
+<tr><td>\8</td><td>ctrl 8</td><td>Infinity symbols</td><td><span class="watex">$$\infty$$</span></td></tr>
+<tr><td>\0</td><td>ctrl .</td><td>Centered single dot</td><td><span class="watex">$$\cdot$$</span></td></tr>
+<tr><td></td><td>shift ~</td><td>Similar</td><td><span class="watex">$$\sim$$</span></td></tr>
+<tr><td></td><td>ctrl =</td><td>Equivalent</td><td><span class="watex">$$\equiv$$</span></td></tr>
+</table>
+</div>
+
+<script>
+	renderAllWeTeXMath();
+	var wetexListener = new window.keypress.Listener();
+	setWaTeXKeyEvents(wetexListener,wetexConfig);
+	console.log("keys set...");
+	console.log("wetex listeners set...");
+	wetexListener.stop_listening();
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WYSIWYG KaTeX editor</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="katex.min.css">
+	<link rel="stylesheet" href="wetex.css">
+	<script src="katex.min.js"></script>
+	<script src="keypress-2.1.5.min.js"></script>
+	<script src="wetex.js"></script>
+</head>
+<body>
+<h1 align="center">WeTeX editor WYSIWYG</h1>
+<div class="content" ondblclick="makeEditableAllWeTeX(wetexListener);">
+
+<div>Move over math equation (<span class="wetex" data-wetex="inline">y=x_i^3</span>) to make it <b>TeX-editable</b> (and <b>Double-Click</b> to get to WYSIWYG editing and refresh to get back to TeX-editing).</div>
+<p>
+<div>The below one was introduced to show how to insert a blank equation:</div>
+<div><span class="wetex-display" data-wetex="display">{\,}{\Box}{\,}</span></div>
+<div>A full fledged equation is shown below:</div>
+<div></div>
+<div></div>
+<div><span class="wetex-display"  data-wetex="display">$$\text{\`{a}}=\acute{x}=\text{\'{a}}=\grave{x}=\sqrt{x}=\sin x=\sqrt[3]{y}=\left\{\frac{a+b}{c+d+\frac{a+b}{c+\frac{a+b}{c+\frac{a+b}{c+\frac{a+b}{c+d}}}}}\right\}=\left\{\frac{a+b}{c+d}\right\}=\begin{pmatrix}
+   a & b \\
+   c & d
+\end{pmatrix}$$</span></div>
+<div>is then followed by another piece of text and another inline math (<span class="wetex" data-wetex="inline">$$\dot{a} = 1/(1+x)$$</span>) as shown here.</div>
+</div>
+
+<div class="widgets">
+	<input type="textbox" id="WeTeX_texcode" value="" size="50"/>
+	<input type="button" id="WeTeX_texbtn" value="submit-TeX" onclick="loadKaTeX()"/><br />
+	<textarea readonly="" id="WeTeX_mmlcode" rows="10" cols="10"></textarea>
+</div>
+<script>
+	renderAllWeTeXMath();
+	var wetexListener = new window.keypress.Listener();
+	setWeTeXKeyEvents(wetexListener,wetexConfig);
+	console.log("keys set...");
+	console.log("wetex listeners set...");
+	wetexListener.stop_listening();
+	
+</script>
+</body>
+</html>
