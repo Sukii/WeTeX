@@ -1,37 +1,65 @@
-#WeTeX_mmlcode { display: none; }
-.katex-mathml { display: none; }
-#WeTeX_leaf {
-	//background-color: lightgrey;
+#WeTeX_mmlcode {
+    display: none;
 }
 
+.katex-mathml {
+    display: none;
+}
+
+#WeTeX_leaf {
+    //background-color: lightgrey;
+}
 
 #WeTeX_m1 {
-	cursor: text;
-	caret-color: yellow;
+    cursor: text;
+    caret-color: yellow;
 }
+
 #WeTeX_m1 *[contenteditable="true"] .mord {
-	border: thin solid;
-	box-shadow: 1px 2px;
+    border: thin solid;
+    box-shadow: 1px 2px;
 }
-#WeTeX_m1 *[contenteditable="true"] .mrel { 
-	border: thin solid;
-	box-shadow: 1px 2px;
+
+#WeTeX_m1 *[contenteditable="true"] .mrel {
+    border: thin solid;
+    box-shadow: 1px 2px;
 }
+
 #WeTeX_m1 *[contenteditable="true"] span.mspace {
-	border: thin solid;
-	box-shadow: 1px 2px;
+    border: thin solid;
+    box-shadow: 1px 2px;
 }
-#WeTeX_m1:before { content: "▶"; }
-#WeTeX_m1:after { content: "◀"; }
+
+#WeTeX_m1:before {
+    content: "▶";
+}
+
+#WeTeX_m1:after {
+    content: "◀";
+}
+
 .content {
-	width: 60%;
-	float: left;
-	font-size:125%;
-	text-align: justify;
+    width: 60%;
+    float: left;
+    font-size: 125%;
+    text-align: justify;
 }
+
 .widgets {
-	width: 40%;
-	text-align: right;
-	float: right;
+    width: 40%;
+    text-align: right;
+    float: right;
+}
+
+input {
+ display: block;
+ margin: 10px;
+ width: 200px;
+}
+
+input.break {
+    word-wrap: break-word;
+    word-break: break-all;
+    height: 80px;
 }
 

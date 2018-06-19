@@ -1,45 +1,122 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>WYSIWYG KaTeX editor</title>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="katex.min.css">
-	<link rel="stylesheet" href="wetex.css">
-	<script src="katex.min.js"></script>
-	<script src="keypress-2.1.5.min.js"></script>
-	<script src="wetex.js"></script>
-</head>
-<body>
-<h1 align="center">WeTeX editor WYSIWYG</h1>
-<div class="content" ondblclick="makeEditableAllWeTeX(wetexListener);">
 
-<div>Move over math equation (<span class="wetex" data-wetex="inline">y=x_i^3</span>) to make it <b>TeX-editable</b> (and <b>Double-Click</b> to get to WYSIWYG editing and refresh to get back to TeX-editing).</div>
-<p>
-<div>The below one was introduced to show how to insert a blank equation:</div>
-<div><span class="wetex-display" data-wetex="display">{\,}{\Box}{\,}</span></div>
-<div>A full fledged equation is shown below:</div>
-<div></div>
-<div></div>
-<div><span class="wetex-display"  data-wetex="display">$$\text{\`{a}}=\acute{x}=\text{\'{a}}=\grave{x}=\sqrt{x}=\sin x=\sqrt[3]{y}=\left\{\frac{a+b}{c+d+\frac{a+b}{c+\frac{a+b}{c+\frac{a+b}{c+\frac{a+b}{c+d}}}}}\right\}=\left\{\frac{a+b}{c+d}\right\}=\begin{pmatrix}
+<head>
+    <title>WYSIWYG WeTeX editor</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="katex.min.css" />
+    <link rel="stylesheet" href="wetex.css" />
+    <script src="katex.min.js" type="text/javascript"></script>
+    <script src="keypress-2.1.5.min.js" type="text/javascript"></script>
+    <script src="wetex.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <h1 align="center">WeTeX editor WYSIWYG</h1>
+    <div class="content" ondblclick="makeEditableAllWeTeX(WeTeXListener);">
+<div>More Special Accents characters are:<br/>
+<span class="WeTeX-display" data-WeTeX="display">$$\widehat{abcdef}
+$$</span><br/>
+
+<span class="WeTeX-display" data-WeTeX="display">$$
+\begin{array}{l}
+\mathbf{Sample\ vec}\\
+	\vec{A} \quad \vec{x} \quad \vec x^2 \quad \vec{x}_2^2 \quad \vec{A}^2 \quad\vec{xA}^2
+\end{array}$$</span>
+
+<span class="WeTeX-display" data-WeTeX="display">$$
+\begin{array}{l}
+%\mathbf{Accent\ Text}\\
+	\textrm{\'\i} & \text{\.\i} & \text{\`\i} & \text{\"\i} & \text{\H\i} & \text{\r\i} \\
+	%\text{\'\j} & \text{\.\j} & \text{\`\j} & \text{\"\j} & \text{\H\j} & \text{\r\j} \\
+	%\text{\'a} & \text{\.a} & \text{\`a} & \text{\"a} & \text{\H{a}} & \text{\r{a}} \\
+	%\text{\'A} & \text{\.A} & \text{\`A} & \text{\"A} & \text{\H{A}} & \text{\r{A}} \\
+	%\text{\.I İ} & \text{\H e e̋} & \text{\i ı}
+\end{array}$$</span>
+
+<span class="WeTeX-display" data-WeTeX="display">$$
+\begin{array}{l}
+\mathbf{Long\ accent\ Text}\\
+	\widehat{WIDEHAT}\\
+	\widetilde{WIDETILDE}\\
+	\utilde{UTILDE}\\
+	\overrightharpoon{OVERRIGHTHARPOON}
+\end{array}$$</span>
+
+<span class="WeTeX-display" data-WeTeX="display">$$
+    \begin{aligned}
+\mathbf{Aligned}\\
+        a &= 1 & b &= 2 \\
+        3a &= 3 & 17b &= 34
+    \end{aligned}
+$$</span>
+            </div>
+        <div>Move over &#9182; math equation (<span class="WeTeX" data-WeTeX="inline">y=x^2_a</span>) to make it <b>TeX-editable</b> (and <b>Double-Click</b> to get to WYSIWYG editing and refresh to get back to TeX-editing).</div>
+        <!--\aa\ \AA\ \ae\ \AE\ \oe\ \OE\ \o\ \O\ \ss\ \i\ \j
+\.e \"e \r{e} \H{e} \v{e}
+\text{l \'l \`l \^l \~l \u{l} \.l \"l \r{l} \H{l} \v{l}}
+\text{X \'X \`X \^X \~X \u{X} \.X \"X \r{H} \X{X} \v{X}}
+-->
+        <p>
+            
+            <!--   
+
+
+
+    \xrightequilibrium{xrightequilibrium}\\     
+    \xrightleftarrows{xrightleftarrows}\\
+    \xtofrom{xtofrom}\\
+    \xlongequal{xlongequal}\\
+    \xtwoheadrightarrow{xtwoheadrightarrow}\\
+    \xtwoheadleftarrow{xtwoheadleftarrow}\\
+    \xleftrightharpoons{xleftrightharpoons}\\
+    \xrightleftharpoons{xrightleftharpoons}\\
+    \xleftharpoondown{xleftharpoondown}\\
+    \xrightharpoondown{xrightharpoondown}\\
+    \xrightarrow{xrightarrow}\\
+    \xleftrightarrow{xleftrightarrow}\\
+    \Overrightarrow{Overrightarrow}\\
+    \xRightarrow{xRightarrow}\\
+    \xleftharpoonup{xleftharpoonup}\\
+    \xrightharpoonup{xrightharpoonup}\\
+    \xLeftarrow{xLeftarrow}\\
+    \xLeftrightarrow{xLeftrightarrow}\\
+    \xhookleftarrow{xhookleftarrow}\\
+    \xhookrightarrow{xhookrightarrow}\\
+    \xmapsto{xmapsto}\\
+\end{pmatrix}-->
+        </p>
+        <p>
+            <div>The below one was introduced to show how to insert a blank equation:</div>
+            <div><span class="WeTeX-display" data-WeTeX="display">{\,}{\Box}{\,}</span></div>
+            <div>A full fledged equation is shown below:</div>
+            <div></div>
+            <div></div>
+            <div><span class="WeTeX-display" data-WeTeX="display">$$\text{\`{a}}=\acute{x}=\text{\'{a}}=\grave{x}=\sqrt{x}=\sin x=\sqrt[3]{y}=\left\{\frac{a+b}{c+d+\frac{a+b}{c+\frac{a+b}{c+\frac{a+b}{c+\frac{a+b}{c+d}}}}}\right\}=\left\{\frac{a+b}{c+d}\right\}=\begin{pmatrix}
    a & b \\
    c & d
 \end{pmatrix}$$</span></div>
-<div>is then followed by another piece of text and another inline math (<span class="wetex" data-wetex="inline">$$\dot{a} = 1/(1+x)$$</span>) as shown here.</div>
-</div>
+            <div>is then followed by another piece of text and another inline math (<span class="WeTeX" data-WeTeX="inline">$$\dot{a} = 1/(1+x)$$</span>) as shown here.</div>
+    </div>
 
-<div class="widgets">
-	<input type="textbox" id="WeTeX_texcode" value="" size="50"/>
-	<input type="button" id="WeTeX_texbtn" value="submit-TeX" onclick="loadKaTeX()"/><br />
-	<textarea readonly="" id="WeTeX_mmlcode" rows="10" cols="10"></textarea>
-</div>
-<script>
-	renderAllWeTeXMath();
-	var wetexListener = new window.keypress.Listener();
-	setWeTeXKeyEvents(wetexListener,wetexConfig);
-	console.log("keys set...");
-	console.log("wetex listeners set...");
-	wetexListener.stop_listening();
-	
-</script>
+
+
+
+    <div class="widgets">
+<!--        <input type="text" id="WeTeX_texcode" value=""/>-->
+        <textarea readonly="no" id="WeTeX_texcode" rows="18" cols="60"></textarea>
+        <input type="button" id="WeTeX_texbtn" value="Submit-WeTeX-File" onclick="loadKaTeX()" /><br />
+        <textarea readonly="" id="WeTeX_mmlcode" rows="0" cols="0"></textarea>
+    </div>
+    <script type="text/javascript">
+        renderAllWeTeXMath();
+        WeTeXListener = new window.keypress.Listener();
+        setWeTeXKeyEvents(WeTeXListener, WeTeXConfig);
+        console.log("keys set...");
+        console.log("WeTeX listeners set...");
+        WeTeXListener.stop_listening();
+
+    </script>
 </body>
+
 </html>
