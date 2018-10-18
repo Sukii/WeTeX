@@ -1,0 +1,13 @@
+version: "3"
+services:
+  wetex:
+    image: "node:8"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./volume:/home/node
+    ports:
+      - "8085:8085"
+    command: "npm start"
