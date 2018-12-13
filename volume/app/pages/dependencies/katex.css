@@ -43,15 +43,15 @@
 }
 @font-face {
   font-family: 'KaTeX_Main';
-  src: url(fonts/KaTeX_Main-Regular.woff2) format('woff2'), url(fonts/KaTeX_Main-Regular.woff) format('woff'), url(fonts/KaTeX_Main-Regular.ttf) format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'KaTeX_Main';
   src: url(fonts/KaTeX_Main-Italic.woff2) format('woff2'), url(fonts/KaTeX_Main-Italic.woff) format('woff'), url(fonts/KaTeX_Main-Italic.ttf) format('truetype');
   font-weight: normal;
   font-style: italic;
+}
+@font-face {
+  font-family: 'KaTeX_Main';
+  src: url(fonts/KaTeX_Main-Regular.woff2) format('woff2'), url(fonts/KaTeX_Main-Regular.woff) format('woff'), url(fonts/KaTeX_Main-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
   font-family: 'KaTeX_Math';
@@ -167,8 +167,12 @@
 .katex .texttt {
   font-family: KaTeX_Typewriter;
 }
-.katex .mathit {
+.katex .mathdefault {
   font-family: KaTeX_Math;
+  font-style: italic;
+}
+.katex .mathit {
+  font-family: KaTeX_Main;
   font-style: italic;
 }
 .katex .mathrm {
@@ -216,10 +220,6 @@
 .katex .mathitsf,
 .katex .textitsf {
   font-family: KaTeX_SansSerif;
-  font-style: italic;
-}
-.katex .mainit {
-  font-family: KaTeX_Main;
   font-style: italic;
 }
 .katex .mainrm {
@@ -998,6 +998,7 @@
 }
 .katex-display > .katex > .katex-html {
   display: block;
+  position: relative;
 }
 .katex-display > .katex > .katex-html > .tag {
   position: absolute;
