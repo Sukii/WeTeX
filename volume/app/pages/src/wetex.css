@@ -1,7 +1,7 @@
-#WeTeX_mmlcode { display: none; }
-.katex-mathml { display: none; }
+#WeTeX_mmlcode { font-size: 3; }
+.katex-mathml { font-size: 3; }
 #WeTeX_leaf {
-	//background-color: lightgrey;
+	background-color: lightgrey;
 }
 
 /*

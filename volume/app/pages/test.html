@@ -4,62 +4,111 @@
 <head>
     <title>WYSIWYG WeTeX editor</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="dependencies/katex.min.css" />
-    <link rel="stylesheet" href="src/wetex.css" />
-    <script src="dependencies/katex.min.js" type="text/javascript"></script>
-    <script src="dependencies/keypress-2.1.5.min.js" type="text/javascript"></script>
-    <script src="src/wetex.js" type="text/javascript"></script>
+    <!--<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="katex.min.css" />
+    <link rel="stylesheet" href="wetex-skv.css" />
+    <script src="katex.min.js"></script>
+    <script src="keypress-2.1.5.min.js"></script>
+    <script src="wetex-skv.js"></script>
 </head>
 
 <body>
     <h1 align="center">WeTeX editor WYSIWYG</h1>
-    <div class="content" ondblclick="makeEditableAllWeTeX(WeTeXListener);">
+    <div id="myText" class="content" ondblclick="makeEditableAllWeTeX(WeTeXListener);">
 <div>More Special Accents characters are:<br/>
-<span class="WeTeX-display" data-WeTeX="display">$$\widehat{abcdef}
-$$</span><br/>
 
+<span class="WeTeX-display" data-WeTeX="display">\underbrace{XYZ} \ \text{and}\ \overbrace{XYZ} \ \text{and}\ \xrightarrow{XYZ}\ \text{and}\ \xleftarrow{XYZ}\ \text{and}\ \xlongequal{XYZ}</span><br/>
+
+<div>
+<p><b>Arrows:</b>
 <span class="WeTeX-display" data-WeTeX="display">$$
 \begin{array}{l}
-\mathbf{Sample\ vec}\\
-	\vec{A} \quad \vec{x} \quad \vec x^2 \quad \vec{x}_2^2 \quad \vec{A}^2 \quad\vec{xA}^2
-\end{array}$$</span>
+ & \xLongleftarrow & \xLongrightarrow & \xLongleftrightarrow & \xLeftrightarrow{}\\
+\xlongleftrightarrow & \xlongrightarrow & \xleftrightarrow{} & \xlongleftarrow & \xlongleftarrow\\
+\xlongrightarrow & \xleftarrow{} & \xrightarrow{} & \xrightequilibrium{} & \xrightleftarrows{}\\
+\xtofrom{} & \xlongequal{} & \xtwoheadrightarrow{} & \xtwoheadleftarrow{} &     \xleftrightharpoons{}\\
+\xrightleftharpoons{} & \xleftharpoondown{} & \xrightharpoondown{} & \xrightarrow{} &     \xleftrightarrow{}\\
+\Overrightarrow{} & \xRightarrow{} & \xleftharpoonup{} & \xrightharpoonup{} & \xLeftarrow{}\\
+\xLeftrightarrow{} & \xhookleftarrow{} & \xhookrightarrow{} & \xmapsto{}\\
+\uparrow & \Uparrow & \downarrow & \Downarrow & \updownarrow & \Updownarrow\\
+\end{array}
+</span></p></div>
 
+
+<!--<span class="WeTeX-display" data-WeTeX="display">$$\widehat{abcdef} \mathit{and} \bm{\alpha} \textrm{ and } \ \acute{X} \ \boldsymbol{AaBb} \mathrm{ and } \xRightarrow{abc} \ a b \underbrace{xyz}$$</span><br/>-->
+
+<!--<span class="WeTeX-display" data-WeTeX="display">\begin{array}{l}\textrm{hd}\Bigg({\textrm{Δ}}_{\scriptsize{\textrm{XYZ}}}\Bigg)?\Bigg\{\begin{array}{ll}{\overline{{p}}}_{\scriptsize{\textrm{XXXj}}}^{\scriptsize{+}}\textrm{tanh}\Bigg(\frac{{{p}}_{\scriptsize{{j}}}}{{\overline{{p}}}_{\scriptsize{{j}}}^{\scriptsize{+}}}\Bigg) &amp; \textrm{i}\textrm{f}{{p}}_{\scriptsize{{j}}}≥{0},\\{\overline{{p}}}_{\scriptsize{{j}}}^{\scriptsize{−}}\textrm{tanh}\Bigg(\frac{{{p}}_{\scriptsize{{j}}}}{{\overline{{p}}}_{\scriptsize{{j}}}^{\scriptsize{−}}}\Bigg)&amp; \textrm{i}\textrm{f}{{p}}_{\scriptsize{{j}}}&lt;{0}.\end{array}\Bigg\}\end{array}</span><br/><br/>
+
+<span class="WeTeX-display" data-WeTeX="display">\begin{array}{l}\textrm{hd}\Bigg({\textrm{Δ}}_{\scriptsize{\textrm{XYZ}}}\Bigg)?\Bigg\{\begin{array}{ll}{\overline{{p}}}_{\scriptsize{\textrm{XXXj}}}^{\scriptsize{+}}\textrm{tanh}\Bigg(\frac{{{p}}_{\scriptsize{{j}}}}{{\overline{{p}}}_{\scriptsize{{j}}}^{\scriptsize{+}}}\Bigg) &amp; \textrm{i}\textrm{f}{{p}}_{\scriptsize{{j}}}≥{0},\\{\overline{{p}}}_{\scriptsize{{j}}}^{\scriptsize{−}}\textrm{tanh}\Bigg(\frac{{{p}}_{\scriptsize{{j}}}}{{\overline{{p}}}_{\scriptsize{{j}}}^{\scriptsize{−}}}\Bigg)&amp; \textrm{i}\textrm{f}{{p}}_{\scriptsize{{j}}}&lt;{0}.\end{array}\Bigg.\ \end{array}</span><br/><br/>
+-->
+
+
+<!--
+<div><span data-WeTeX="display">\sqrt{x}\ \sin x=\sqrt[3]{y}=\left\{\frac{a+b}{c+d+\frac{e+f}{g+\frac{h+i}{j+\frac{k+l}{m+\frac{n+o}{p+q}}}}}\right\}=\left\{\frac{r+s}{t+u}\right\}</span></div>
+
+<div><span data-WeTeX="display">\begin{array}{l}{{g}}^{\scriptsize{{\,‴\,}}}\,+\,\left({f}\,+\,{g}\right){{g}}^{\scriptsize{{\,″\,}}}\,-\,{2}\left({{xxx}}^{{\scriptsize{^\prime}}}\,+\,{{g}}^{\scriptsize{{\,^\prime\,}}}\right){{g}}^{\scriptsize{{\,^\prime\,}}}\,+\,{K}\left[\begin{array}{c}{6}{{g}}^{\scriptsize{{\,‴\,}}}{{g}}^{\scriptsize{{\,^\prime\,}}}\,+\,\left({3}{{f}}^{\scriptsize{{\,″\,}}}\,−\,{3}{{g}}^{\scriptsize{{\,^\prime\,\,^\prime\,}}}\,+\,{η}{{f}}^{\scriptsize{{\,‴\,}}}\right){{g}}^{\scriptsize{{\,″\,}}}\\\,+\,\left({4}{{f}}^{\scriptsize{{\,^\prime\,}}}\,+\,{2}{η}{{f}}^{\scriptsize{{\,″\,}}}\right){{g}}^{\scriptsize{{\,‴\,}}}\,-\,\left({f}\,+\,{g}\,+\,{η}{{f}}^{\scriptsize{{\,^\prime\,}}}\right){{g}}^{\scriptsize{{\,‴\,\,^\prime\,}}}\end{array}\right]\,=\,{0}\textrm{,}\end{array}</span></div>
+
+<div><span data-WeTeX="display">
+\begin{array}{l}\begin{array}{ccc}\textbf{\textit{Y}}&amp; =&amp; {\Bigg[\begin{array}{cccccc}{{y}}_{\scriptsize{{1}}}&amp; {{y}}_{\scriptsize{{2}}}&amp; ⋯&amp; {{y}}_{\scriptsize{{i}}}&amp; ⋯&amp; {{y}}_{\scriptsize{{n}}}\end{array}\Bigg]}^{\scriptsize{\textrm{T}}},\hskip1em\textbf{\textit{M}}=\sum _{{i}={1}}^{{n}}\Bigg({∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{φ}}_{\scriptsize{{i}}}{{φ}}_{\scriptsize{{j}}}\textrm{d}{x}\Bigg),\\{\textbf{\textit{C}}}_{\scriptsize{\textrm{L}}}&amp; =&amp; {{c}}_{\scriptsize{\textrm{L}}}\sum _{{i}={1}}^{{n}}\Bigg({∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{φ}}_{\scriptsize{{i}}}{{φ}}_{\scriptsize{{j}}}{δ}\Bigg({x}−{{x}}_{\scriptsize{\textrm{K}}}\Bigg)\textrm{d}{x}\Bigg)+{{c}}_{\scriptsize{\textrm{B}}}\sum _{{i}={1}}^{{n}}\Bigg({∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{φ}}_{\scriptsize{{i}}}{{φ}}_{\scriptsize{{j}}}\textrm{d}{x}\Bigg),\\{\textbf{\textit{K}}}_{\scriptsize{\textrm{L}}}&amp; =&amp; {{k}}_{\scriptsize{\textrm{L}}}\sum _{{i}={1}}^{{n}}\Bigg({∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{φ}}_{\scriptsize{{i}}}{{φ}}_{\scriptsize{{j}}}{δ}\Bigg({x}−{{x}}_{\scriptsize{\textrm{K}}}\Bigg)\textrm{d}{x}\Bigg)+\sum _{{i}={1}}^{{n}}\Bigg({∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{φ}}_{\scriptsize{{i}}}^{\scriptsize{′′′′}}{{φ}}_{\scriptsize{{j}}}\textrm{d}{x}\Bigg),\\{\textbf{\textit{C}}}_{\scriptsize{\textrm{Q}}}&amp; =&amp; {{c}}_{\scriptsize{\textrm{Q}}}\sum _{{i}={1}}^{{n}}\sum _{{s}={1}}^{{n}}\Bigg({∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{φ}}_{\scriptsize{{i}}}{{φ}}_{\scriptsize{{j}}}{{φ}}_{\scriptsize{{s}}}\Bigg({x}−{{x}}_{\scriptsize{\textrm{K}}}\Bigg)\textrm{d}{x}\Bigg){\dot{{y}}}_{\scriptsize{{s}}},\\{\textbf{\textit{K}}}_{\scriptsize{\textrm{Q}}}&amp; =&amp; {{k}}_{\scriptsize{\textrm{L}}}\sum _{{i}={1}}^{{n}}\sum _{{s}={1}}^{{n}}\Bigg({∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{φ}}_{\scriptsize{{i}}}{{φ}}_{\scriptsize{{j}}}{{φ}}_{\scriptsize{{s}}}{δ}\Bigg({x}−{{x}}_{\scriptsize{\textrm{K}}}\Bigg)\textrm{d}{x}\Bigg){{y}}_{\scriptsize{{s}}},\\{\textbf{\textit{C}}}_{\scriptsize{\textrm{C}}}&amp; =&amp; {{c}}_{\scriptsize{\textrm{C}}}\sum _{{i}={1}}^{{n}}\sum _{{s}={1}}^{{n}}\sum _{{l}={1}}^{{n}}\Bigg({∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{φ}}_{\scriptsize{{i}}}{{φ}}_{\scriptsize{{s}}}{{φ}}_{\scriptsize{{l}}}{{φ}}_{\scriptsize{{j}}}{δ}\Bigg({x}−{{x}}_{\scriptsize{\textrm{K}}}\Bigg)\textrm{d}{x}\Bigg){\dot{{y}}}_{\scriptsize{{s}}}{\dot{{y}}}_{\scriptsize{{l}}},\\{\textbf{\textit{K}}}_{\scriptsize{\textrm{C}}}&amp; =&amp; {{k}}_{\scriptsize{\textrm{C}}}\sum _{{i}={1}}^{{n}}\sum _{{s}={1}}^{{n}}\sum _{{l}={1}}^{{n}}\Bigg({∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{φ}}_{\scriptsize{{i}}}{{φ}}_{\scriptsize{{s}}}{{φ}}_{\scriptsize{{l}}}{{φ}}_{\scriptsize{{j}}}{δ}\Bigg({x}−{{x}}_{\scriptsize{\textrm{K}}}\Bigg)\textrm{d}{x}\Bigg){{y}}_{\scriptsize{{s}}}{{y}}_{\scriptsize{{l}}}\\&amp; &amp; −\hskip0.16em{{k}}_{\scriptsize{\textrm{B}}}\sum _{{i}={1}}^{{n}}\sum _{{s}={1}}^{{n}}\sum _{{l}={1}}^{{n}}\Bigg({∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{φ}}_{\scriptsize{{i}}}^{\scriptsize{{′′}^{\scriptsize{}}}}{{φ}}_{\scriptsize{{j}}}\Bigg({∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{φ}}_{\scriptsize{{s}}}^{\scriptsize{′}}{{φ}}_{\scriptsize{{l}}}^{\scriptsize{′}}\textrm{d}{x}\Bigg)\textrm{d}{x}\Bigg){{y}}_{\scriptsize{{s}}}{{y}}_{\scriptsize{{l}}},\\\textbf{\textit{F}}&amp; =&amp; \Bigg[{{f}}_{\scriptsize{{0}}}+{{f}}_{\scriptsize{\textrm{P}}}\textrm{sin}\Bigg({ω}{τ}\Bigg)\Bigg]\sum _{{i}={1}}^{{n}}{∫}_{\scriptsize{{0}}}^{\scriptsize{{1}}}{δ}\Bigg({x}−{{x}}_{\scriptsize{{0}}}\Bigg){{φ}}_{\scriptsize{{j}}}\textrm{d}{x}.\end{array}\end{array}
+</span></div>
+
+<div><span data-WeTeX="display">\begin{array}{l}\begin{array}{ccc}&amp; &amp; \frac{{∂}{{U}}_{\scriptsize{{i}}}}{{∂}{t}}+\frac{{∂}}{{∂}{{x}}_{\scriptsize{{j}}}}\Bigg({{U}}_{\scriptsize{{i}}}{{U}}_{\scriptsize{{j}}}/{D}+\Bigg[{g}{d}{η}+{g}{{η}}^{\scriptsize{{2}}}/{2}\Bigg]{{δ}}_{\scriptsize{{i}{j}}}\Bigg){{λ}}_{\scriptsize{{j}}}+\frac{{∂}{{U}}_{\scriptsize{{i}}}{Ω}/{D}}{{∂}{σ}}=\\&amp; &amp; −\frac{{1}}{{{ρ}}_{\scriptsize{{0}}}}\Bigg\{{D}\frac{{∂}{{p}}^{\scriptsize{{h}}}}{{∂}{{x}}_{\scriptsize{{i}}}}{|}_{\scriptsize{{σ}={1}}}−{{ρ}}_{\scriptsize{{0}}}{g}{η}{{d}}_{\scriptsize{{{x}}_{\scriptsize{{i}}}}}\Bigg\}{{λ}}_{\scriptsize{{i}}}\textrm{(barotropic}\textrm{pressure}\textrm{terms)}\\&amp; &amp; −\frac{{1}}{{{ρ}}_{\scriptsize{{0}}}}\Bigg\{\frac{{∂}\mathscr{P}}{{∂}{{x}}_{\scriptsize{{i}}}}{{λ}}_{\scriptsize{{i}}}+\frac{{∂}{{σ}}_{\scriptsize{{{x}}_{\scriptsize{{i}}}^{\scriptsize{*}}}}\mathscr{P}}{{∂}{σ}}\Bigg\}\textrm{(dynamic}\textrm{pressure}\textrm{terms)}\\&amp; &amp; +\frac{{∂}{2}{\Bigg({{ν}}_{\scriptsize{{e}{f}{f}}}\Bigg)}_{\scriptsize{{j}}}{\mathscr{E}}_{\scriptsize{{i}{j}}}}{{∂}{{x}}_{\scriptsize{{j}}}}{{λ}}_{\scriptsize{{j}}}+\frac{{∂}{2}{{σ}}_{\scriptsize{{{x}}_{\scriptsize{{j}}}^{\scriptsize{*}}}}{\Bigg({{ν}}_{\scriptsize{{e}{f}{f}}}\Bigg)}_{\scriptsize{{j}}}{\mathscr{E}}_{\scriptsize{{i}{j}}}}{{∂}{σ}}\textrm{(diffusion}\textrm{terms)},\end{array}\end{array}</span></div>
+
+<div><span data-WeTeX="display">
+\begin{array}{l}\begin{array}{ccc}&amp; &amp; \frac{{∂}{{U}}_{\scriptsize{{i}}}}{{∂}{t}}+\frac{{∂}}{{∂}{{x}}_{\scriptsize{{j}}}}\Bigg({{U}}_{\scriptsize{{i}}}{{U}}_{\scriptsize{{j}}}/{D}+\Bigg[{g}{d}{η}+{g}{{η}}^{\scriptsize{{2}}}/{2}\Bigg]{{δ}}_{\scriptsize{{i}{j}}}\Bigg){{λ}}_{\scriptsize{{j}}}+\frac{{∂}{{U}}_{\scriptsize{{i}}}{Ω}/{D}}{{∂}{σ}}=\\&amp; &amp; \hskip1em−\hskip0.16em\frac{{1}}{{{ρ}}_{\scriptsize{{0}}}}\Bigg\{{D}\frac{{∂}{{p}}^{\scriptsize{{h}}}}{{∂}{{x}}_{\scriptsize{{i}}}}{|}_{\scriptsize{{σ}={1}}}−{{ρ}}_{\scriptsize{{0}}}{g}{η}{{d}}_{\scriptsize{{{x}}_{\scriptsize{{i}}}}}\Bigg\}{{λ}}_{\scriptsize{{i}}}\hskip2.em\textrm{(barotropic}\hskip4.pt\textrm{pressure}\hskip4.pt\textrm{terms)}\\&amp; &amp; \hskip1em−\hskip0.16em\frac{{1}}{{{ρ}}_{\scriptsize{{0}}}}\Bigg\{\frac{{∂}\mathscr{P}}{{∂}{{x}}_{\scriptsize{{i}}}}{{λ}}_{\scriptsize{{i}}}+\frac{{∂}{{σ}}_{\scriptsize{{{x}}_{\scriptsize{{i}}}^{\scriptsize{*}}}}\mathscr{P}}{{∂}{σ}}\Bigg\}\hskip2.em\textrm{(dynamic}\hskip4.pt\textrm{pressure}\hskip4.pt\textrm{terms)}\\&amp; &amp; \hskip1em+\hskip0.16em\frac{{∂}\hskip0.16em{2}{\Bigg({{ν}}_{\scriptsize{{e}{f}{f}}}\Bigg)}_{\scriptsize{{j}}}{\mathscr{E}}_{\scriptsize{{i}{j}}}}{{∂}{{x}}_{\scriptsize{{j}}}}{{λ}}_{\scriptsize{{j}}}+\frac{{∂}\hskip0.16em{2}{{σ}}_{\scriptsize{{{x}}_{\scriptsize{{j}}}^{\scriptsize{*}}}}{\Bigg({{ν}}_{\scriptsize{{e}{f}{f}}}\Bigg)}_{\scriptsize{{j}}}{\mathscr{E}}_{\scriptsize{{i}{j}}}}{{∂}{σ}}\hskip2.em\textrm{(diffusion}\hskip4.pt\textrm{terms)},\end{array}\end{array}
+</span></div>
+
+<div>
+<p><b>Greek Roman Letters:</b>
+<span data-WeTeX="display">\upalpha\upbeta\upgamma\updelta\upepsilon\upzeta\upeta\uptheta\upiota\upkappa\uplambda\upmu\upnu\upxi\uppi\uprho\upvarsigma\upsigma\uptau\upupsilon\upvarphi\upchi\uppsi\upomega</span></p></div>-->
+
+<!--<div>
+<p><b>Sample Vec:</b>
 <span class="WeTeX-display" data-WeTeX="display">$$
 \begin{array}{l}
-%\mathbf{Accent\ Text}\\
+\vec{A} \quad \vec{x} \quad \vec x^2 \quad \vec{x}_2^2 \quad \vec{A}^2 \quad\vec{xA}^2
+\end{array}$$</span></p></div>-->
+
+<!--<div>
+<p><b>Accent Text:</b>
+<span class="WeTeX-display" data-WeTeX="display">$$
+\begin{array}{l}
 	\textrm{\'\i} & \text{\.\i} & \text{\`\i} & \text{\"\i} & \text{\H\i} & \text{\r\i} \\
-	%\text{\'\j} & \text{\.\j} & \text{\`\j} & \text{\"\j} & \text{\H\j} & \text{\r\j} \\
-	%\text{\'a} & \text{\.a} & \text{\`a} & \text{\"a} & \text{\H{a}} & \text{\r{a}} \\
-	%\text{\'A} & \text{\.A} & \text{\`A} & \text{\"A} & \text{\H{A}} & \text{\r{A}} \\
-	%\text{\.I İ} & \text{\H e e̋} & \text{\i ı}
-\end{array}$$</span>
+	\text{\'\j} & \text{\.\j} & \text{\`\j} & \text{\"\j} & \text{\H\j} & \text{\r\j} \\
+	\text{\'a} & \text{\.a} & \text{\`a} & \text{\"a} & \text{\H{a}} & \text{\r{a}} \\
+	\text{\'A} & \text{\.A} & \text{\`A} & \text{\"A} & \text{\H{A}} & \text{\r{A}} \\
+	\text{\.I İ} & \text{\H e e̋} & \text{\i ı}
+\end{array}$$</span></p></div>
 
+<div>
+<p><b>Long accent Text:</b>
 <span class="WeTeX-display" data-WeTeX="display">$$
 \begin{array}{l}
-\mathbf{Long\ accent\ Text}\\
 	\widehat{WIDEHAT}\\
 	\widetilde{WIDETILDE}\\
 	\utilde{UTILDE}\\
 	\overrightharpoon{OVERRIGHTHARPOON}
-\end{array}$$</span>
+\end{array}$$</span></p></div>
 
+<div>
+<p><b>Aligned:</b>
 <span class="WeTeX-display" data-WeTeX="display">$$
     \begin{aligned}
-\mathbf{Aligned}\\
         a &= 1 & b &= 2 \\
         3a &= 3 & 17b &= 34
     \end{aligned}
-$$</span>
-            </div>
-        <div>Move over &#9182; math equation (<span class="WeTeX" data-WeTeX="inline">y=x^2_a</span>) to make it <b>TeX-editable</b> (and <b>Double-Click</b> to get to WYSIWYG editing and refresh to get back to TeX-editing).</div>
-        <!--\aa\ \AA\ \ae\ \AE\ \oe\ \OE\ \o\ \O\ \ss\ \i\ \j
-\.e \"e \r{e} \H{e} \v{e}
-\text{l \'l \`l \^l \~l \u{l} \.l \"l \r{l} \H{l} \v{l}}
-\text{X \'X \`X \^X \~X \u{X} \.X \"X \r{H} \X{X} \v{X}}
+$$</span></p></div>
+
+<div>Move over math equation (<span class="WeTeX" data-WeTeX="inline">y=x^2_a</span>) to <span class="WeTeX" data-WeTeX="inline">\widehat{abcde} \sqrt{ \frac{1}{2}}</span> make it <b>TeX-editable</b> (and <b>Double-Click</b> to get to WYSIWYG editing and refresh to get back to TeX-editing).</div>
+<!--
+        <span class="WeTeX" data-WeTeX="inline">
+        \aa\ \AA\ \ae\ \AE\ \oe\ \OE\ \o\ \O\ \ss\ \i\ \j
+\.e \"e  \H{e} \v{e}
+\text{l \'l \`l \^l \~l \u{l} \.l \"l  \H{l} \v{l}}
+\text{X \'X \`X \^X \~X \u{X} \.X \"X  \X{X} \v{X}}</span>
 -->
-        <p>
-            
-            <!--   
+
+<!--   
 
 
 
@@ -85,9 +134,7 @@ $$</span>
     \xhookrightarrow{xhookrightarrow}\\
     \xmapsto{xmapsto}\\
 \end{pmatrix}-->
-        </p>
-        <p>
-            <div>The below one was introduced to show how to insert a blank equation:</div>
+            <!--<div><span class="WeTeX-display" data-WeTeX="display">\mathsfbfit{\varpi}</span></div>
             <div><span class="WeTeX-display" data-WeTeX="display">{\,}{\Box}{\,}</span></div>
             <div>A full fledged equation is shown below:</div>
             <div></div>
@@ -99,24 +146,43 @@ $$</span>
             <div>is then followed by another piece of text and another inline math (<span class="WeTeX" data-WeTeX="inline">$$\dot{a} = 1/(1+x)$$</span>) as shown here.</div>
     </div>
 
-
-
+intrinsic events
+-->
 
     <div class="widgets">
-<!--        <input type="text" id="WeTeX_texcode" value=""/>-->
-        <textarea readonly="no" id="WeTeX_texcode" rows="18" cols="60"></textarea>
+            <input type="text" id="WeTeX_texcode" value=""/>
         <input type="button" id="WeTeX_texbtn" value="Submit-WeTeX-File" onclick="loadKaTeX()" /><br />
-        <textarea readonly="" id="WeTeX_mmlcode" rows="0" cols="0"></textarea>
+
+    <form method="get" id="WeTeX_mmlcode">
+        <textarea id="WeTeX_mmlcode" rows="20" cols="30"></textarea><br/>
+        <!--<textarea for="WeTeX_mmlcode" id="WeTeX_mmlcode" rows="20" cols="25" wrap="soft"></textarea>--><br/>
+    </form>
     </div>
+    
+
     <script type="text/javascript">
         renderAllWeTeXMath();
         WeTeXListener = new window.keypress.Listener();
+        bindArrowKeys(WeTeXListener);
         setWeTeXKeyEvents(WeTeXListener, WeTeXConfig);
         console.log("keys set...");
         console.log("WeTeX listeners set...");
         WeTeXListener.stop_listening();
-
     </script>
+
+<!--    <script type="text/javascript">
+    var elem = document.querySelectorAll('span')
+    var j = 1;
+    for(var i=0; i< elem.length; i++){
+         elem[i].id = 'cursor-position-count' + j;
+     j++;
+    }
+    </script>
+ -->
+    <form id="html-options">
+            <label><input type="text" class="filename" id="html-filename" placeholder="Output FileName"/>.xhtml</label>
+            <input type="submit" value="SaveAs"/>
+    </form> 
 </body>
 
 </html>
