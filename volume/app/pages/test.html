@@ -5,11 +5,15 @@
     <title>WYSIWYG WeTeX editor</title>
     <meta charset="utf-8" />
     <!--<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="katex.min.css" />
-    <link rel="stylesheet" href="wetex-skv.css" />
-    <script src="katex.min.js"></script>
-    <script src="keypress-2.1.5.min.js"></script>
-    <script src="wetex-skv.js"></script>
+    <link rel="stylesheet" href="dependencies/katex.min.css" />
+    <link rel="stylesheet" href="src/wetex.css" />
+    <script src="dependencies/katex.min.js"></script>
+    <script src="dependencies/keypress-2.1.5.min.js"></script>
+    <script src="src/wetex.js"></script>
+    <script src="dependencies/FileSaver.js"></script>
+    <noscript>
+         <h1>Sorry...JavaScript is needed for WeTeX Projects.</h1>
+    </noscript> 
 </head>
 
 <body>
@@ -17,8 +21,16 @@
     <div id="myText" class="content" ondblclick="makeEditableAllWeTeX(WeTeXListener);">
 <div>More Special Accents characters are:<br/>
 
-<span class="WeTeX-display" data-WeTeX="display">\underbrace{XYZ} \ \text{and}\ \overbrace{XYZ} \ \text{and}\ \xrightarrow{XYZ}\ \text{and}\ \xleftarrow{XYZ}\ \text{and}\ \xlongequal{XYZ}</span><br/>
+<span class="WeTeX-display" data-WeTeX="display">
+\begin{array}{l}\mathbb{\begin{array}{l}{0123456789}\\{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\{abcdefghijklmnopqrstuvwxyz}\end{array}}\end{array}
+</span>
 
+
+<!--
+<span class="WeTeX-display" data-WeTeX="display">\widehat{A}\ \underbrace{XYZ} \ \text{and}\ \overbrace{XYZ} \ \text{and}\ \xrightarrow{XYZ}\ \text{and}\ \xleftarrow{XYZ}\ \text{and}\ \xlongequal{XYZ}\ \overgroup{AB}</span><br/>
+-->
+
+<!--
 <div>
 <p><b>Arrows:</b>
 <span class="WeTeX-display" data-WeTeX="display">$$
@@ -33,7 +45,7 @@
 \uparrow & \Uparrow & \downarrow & \Downarrow & \updownarrow & \Updownarrow\\
 \end{array}
 </span></p></div>
-
+-->
 
 <!--<span class="WeTeX-display" data-WeTeX="display">$$\widehat{abcdef} \mathit{and} \bm{\alpha} \textrm{ and } \ \acute{X} \ \boldsymbol{AaBb} \mathrm{ and } \xRightarrow{abc} \ a b \underbrace{xyz}$$</span><br/>-->
 
@@ -149,9 +161,16 @@ $$</span></p></div>
 intrinsic events
 -->
 
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    console.log("DOM fully loaded and parsed");
+  });
+</script>
+
     <div class="widgets">
-            <input type="text" id="WeTeX_texcode" value=""/>
-        <input type="button" id="WeTeX_texbtn" value="Submit-WeTeX-File" onclick="loadKaTeX()" /><br />
+        <input type="text" id="WeTeX_texcode" value=""/>
+        <input type="button" id="WeTeX_texbtn" value="Submit-WeTeX-File" onclick="loadKaTeX()" />
+        <br/>
 
     <form method="get" id="WeTeX_mmlcode">
         <textarea id="WeTeX_mmlcode" rows="20" cols="30"></textarea><br/>
@@ -159,8 +178,7 @@ intrinsic events
     </form>
     </div>
     
-
-    <script type="text/javascript">
+   <script type="text/javascript">
         renderAllWeTeXMath();
         WeTeXListener = new window.keypress.Listener();
         bindArrowKeys(WeTeXListener);
@@ -179,10 +197,18 @@ intrinsic events
     }
     </script>
  -->
-    <form id="html-options">
+     <!--<script type="text/javascript">
+    $(document).on('click', '#newline', function(){
+    ssspecialgreeks()
+    });
+    </script>-->
+
+    <!--<form id="html-options">
             <label><input type="text" class="filename" id="html-filename" placeholder="Output FileName"/>.xhtml</label>
             <input type="submit" value="SaveAs"/>
-    </form> 
+    </form>-->
+        <input type="button" id="newline" value="SVG-Class-Value">
+
 </body>
 
 </html>

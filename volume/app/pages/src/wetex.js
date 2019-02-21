@@ -478,13 +478,86 @@ function replaceMsupsubWithTeX(item) {
 		item.outerHTML = "<span class='subsup'>" + item.innerHTML + "</span>";
 	}
 }
-function replaceunderbraeWithTeX(item) {
-	cns = item.parentNode.parentNode.parentNode;
-        //alert(cns);
-        cns.outerHTML = "\\underbrace{" + item.innerHTML + "}";
+function repunderbraceWithTeX(item) {
+	cns = item.parentNode.parentNode.parentNode.parentNode;
+        item.outerHTML = "";
+        cns.outerHTML = "\\underbrace{" + cns.innerHTML + "}";
 }
+function repoverbraceWithTeX(item) {
+	cns = item.parentNode.parentNode.parentNode.parentNode;
+        item.outerHTML = "";
+        cns.outerHTML = "\\overbrace{" + cns.innerHTML + "}";
+}
+function repxrightarrowWithTeX(item) {
+	cns = item.parentNode.parentNode.parentNode.parentNode;
+        item.outerHTML = "";
+        cns.outerHTML = "\\xrightarrow{" + cns.innerHTML + "}";
+}
+function repxleftarrowWithTeX(item) {
+	cns = item.parentNode.parentNode.parentNode.parentNode;
+        item.outerHTML = "";
+        cns.outerHTML = "\\xleftarrow{" + cns.innerHTML + "}";
+}
+function repxlongequalWithTeX(item) {
+	cns = item.parentNode.parentNode.parentNode.parentNode;
+        item.outerHTML = "";
+        cns.outerHTML = "\\xlongequal{" + cns.innerHTML + "}";
+}
+
+function ssspecialgreeks()
+{
+var SVGvalue=[];
+var element=$("svg");
+
+    for(i=0;i<element.length;i++){
+        var SVGclassName = $(element[i]).attr('class');
+        SVGvalue.push("Replace"+SVGclassName+"WithTeX");
+    }
+    var fs = [];
+    for(j=0;j<SVGvalue.length;j++){
+        var element=SVGvalue[j];
+        fs[element] =  new Function(
+         "return function " + element + "(){ alert('"+element+"')}"
+    )();
+    fs[element]();
+    if(SVGclassName=="overbrace"){
+    $(element[i]).removeAttr("class");
+    }
+}
+}
+
+function specialgreeks()
+{
+var value=[];
+var element=$("svg");
+
+    for(i=0;i<element.length;i++){
+    var className = $(element[i]).attr('class');
+
+    if(className=="overbrace"){
+    $(element[i]).removeAttr("class");
+    }
+    
+    if(typeof $(element[i]).attr('class')!="undefined" && $(element[i]).attr('class')!=undefined){
+    value.push("$new"+className);
+    }
+    }
+var fs = [];
+    for(j=0;j<value.length;j++){
+    var element=value[j];
+    fs[element] =  new Function(
+        "return function " + element + "(){ alert('"+element+"')}"
+    )();
+    fs[element]();
+    }
+}
+
 function katexHtml2latex(m1) {
-        runQueryAll(m1,".underbrace", replaceunderbraeWithTeX);
+        runQueryAll(m1,".brace-left>.underbrace", ssspecialgreeks);                                                                                                                                                                                                                                       
+        runQueryAll(m1,".brace-left>.overbrace", ssspecialgreeks);
+        runQueryAll(m1,".hide-tail>.xrightarrow", ssspecialgreeks);
+        runQueryAll(m1,".hide-tail>.xleftarrow", ssspecialgreeks);
+        runQueryAll(m1,".hide-tail>.xlongequal", ssspecialgreeks);
         runQueryAll(m1,".mord.boldsymbol", replaceboldsymWithTeX);
 	runQueryAll(m1,".strut,.pstrut,.vlist-s,svg,.katex-mathml", removeTag);
 	runQueryAll(m1,".mspace.thinspace", replaceThinspaceWithTeX);
@@ -509,7 +582,7 @@ function katexHtml2latex(m1) {
 	runQueryAll(m1,".mop", replaceMopWithTeX);
 	runQueryAll(m1,".mord>.mord:only-child",emptyFoo);
 	runQueryAll(m1,".mord", replaceWithParenth);
-	runQueryAll(m1,"span", emptyFoo);
+	//runQueryAll(m1,"span", emptyFoo); //pl. uncomment in final stage
 }
 function showMath(th) {
 	var m1 = th;
@@ -535,7 +608,6 @@ function showEditable(m1) {
 }
 function reloadEditedKaTeX() {
 	var focusid = WeTeXConfig.majors["focusid"];
-	var focusid = WeTeXConfig.majors["focusid"];
 	var texid = WeTeXConfig.majors["texcode"];
 	var mmlid = WeTeXConfig.majors["mmlcode"];
 	var texbtnid = WeTeXConfig.majors["texbtn"];
@@ -549,7 +621,7 @@ function reloadEditedKaTeX() {
 		WeTeXDisplay = true;
 		if(m1.getAttribute("data-WeTeX") == "inline") { WeTeXDisplay = false; }
 		renderWeTeXMath(mh1, m1, WeTeXDisplay);
-		mml1.innerHTML = m1.querySelector(".katex-mathml").innerHTML;
+		//mml1.innerHTML = m1.querySelector(".katex-mathml").innerHTML; //on 16-01-19
 		var tag = setCursorPositionOnBox(m1);
 		if(tag == null) {
 			WeTeXListener.stop_listening();
