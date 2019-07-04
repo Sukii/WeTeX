@@ -26,6 +26,7 @@ WeTeXConfig = {
                   "centerdot": ["ctrl .", "", "\\cdot "],
                   "similar": ["shift ~", "", "\\sim "],
                   "equivalent": ["ctrl =", "", "\\equiv "]
+                  
 	     },
 	     funcs: {
 		"matrix": "ctrl m",
@@ -79,7 +80,7 @@ function changeFence(nd,dfen) {
 			nd.append(el);
 		}
 	}
-	setTimeout(reloadEditedKaTeX, 10);
+	setTimeout(reloadEditedKaTeX, 2);  // 10 is changed to 2 on 23/03/19.
 }
 function renderWeTeXMath(ktex, nd, dispMode) {
 	var undoAtt = WeTeXConfig.majors["undo-attribute"];
@@ -95,7 +96,8 @@ function renderWeTeXMath(ktex, nd, dispMode) {
 			ktex = att;		
 		}
 		else {
-			ktex = "\\Error!";
+			//ktex = att;
+                        ktex = "\\Error!";
 		}
 		katex.render(ktex, nd, { unicodeTextInMathMode: true, displayMode: dispMode, throwOnError: false, errorColor: "#ff0000" });
 	}
@@ -116,12 +118,14 @@ function renderAllWeTeXMath() {
 		msh = removeDollars(msi.innerHTML);
 		renderWeTeXMath(msh, msi, false);
 		addAttributeToNode(msi,"onclick","showMath(this);");
+                addAttributeToNode(msi,"contenteditable","true"); // on 03/05/19
 	}
 	for(var i=0; i<mds.length; i++) {
 		mdsi = mds[i];
 		mdsh = removeDollars(mdsi.innerHTML);
 		renderWeTeXMath(mdsh, mdsi, true);
 		addAttributeToNode(mdsi,"onclick","showMath(this);");
+                addAttributeToNode(mdsi,"contenteditable","true"); // on 03/05/19
 	}
 }
 function makeEditableAllWeTeX(lstn) {
@@ -189,7 +193,7 @@ function makeEditable(m1) {
 		addAttributeToNode(msp[i],"contenteditable","true");
 	}
 	addAttributeToNode(m1,"onclick","showEditable(this);");
-	addAttributeToNode(m1,"onmouseleave","reloadEditedKaTeX();");
+	addAttributeToNode(m1,"onmouseleave","reloadEditedKaTeX();");   // on 30/03/19
 }
 function emptyFoo(item) {
 	item.outerHTML = item.innerHTML;
@@ -200,8 +204,10 @@ function removeTag(item) {
 function removeDollars(s) {
 	s = s.replace(/^[$]*/g,"");
 	s = s.replace(/[$]*$/g,"");
-	s = s.replace(/&amp;/g, " \& ");// balakrishnan(Tnq) & is changed to \&
+	s = s.replace(/&amp;/g, " \& ");// bala(Tnq) & is changed to \&
 	s = s.replace(/&nbsp;/g, "\\,");
+        s = s.replace(/&gt;/g, ">");
+        s = s.replace(/&lt;/g, "<");
 	return s;
 }
 function parseHtmlForTeX(s) {
@@ -221,7 +227,7 @@ function removeRedundantParenth(s) {
 }
 function parseHtmlTagsAndEntities(s) {
 	s = s.replace(/<[^<>]+>/g, "");	
-	s = s.replace(/&amp;/g, " & ");
+	s = s.replace(/&amp;/g, " \& ");// bala(Tnq) & is changed to \&
 	s = s.replace(/&nbsp;/g, "\\,");
 	return s;
 }
@@ -289,6 +295,7 @@ function replaceWithTeX(s) {
 	s = s.replace(/□/g, "{\\Box}");
 	s = s.replace(/▶/g, "{\\blacktriangleright}");
 	s = s.replace(/ϝ/g, "{\\digamma}");
+        s = s.replace(/α/g, "{\\alpha}");
 	return s;
 }
 function replaceThinspaceWithTeX(item) {
@@ -370,6 +377,7 @@ function replaceMfracWithTeX(item) {
 function replaceMathAccentWithTeX(item) {
 	var c = item.childNodes;
 	var s = getTextVal(c[1].innerHTML);
+        console.log("S is",s);
 	switch(s) {
 		case "\^":
 			item.outerHTML = "\\hat{" + c[0].innerHTML + "}";
@@ -504,6 +512,7 @@ function repxlongequalWithTeX(item) {
         cns.outerHTML = "\\xlongequal{" + cns.innerHTML + "}";
 }
 
+
 function ssspecialgreeks()
 {
 var SVGvalue=[];
@@ -520,44 +529,106 @@ var element=$("svg");
          "return function " + element + "(){ alert('"+element+"')}"
     )();
     fs[element]();
-    if(SVGclassName=="overbrace"){
-    $(element[i]).removeAttr("class");
-    }
+    //if(SVGclassName=="overbrace"){
+    //$(element[i]).removeAttr("class");
+    //}
 }
 }
+
 
 function specialgreeks()
 {
 var value=[];
-var element=$("svg");
+var element=document.querySelectorAll("svg");
 
     for(i=0;i<element.length;i++){
-    var className = $(element[i]).attr('class');
+    var className = element[i].getAttribute('class');
 
     if(className=="overbrace"){
-    $(element[i]).removeAttr("class");
+    element[i].removeAttribute("class");
     }
     
-    if(typeof $(element[i]).attr('class')!="undefined" && $(element[i]).attr('class')!=undefined){
-    value.push("$new"+className);
+    if(className=="widehat"){
+        element[i].removeAttribute("class");
+    }
+    
+    if(typeof element[i].getAttribute('class')!="undefined" && element[i].getAttribute('class')!=undefined) {
+        value.push("$new"+className);
     }
     }
 var fs = [];
     for(j=0;j<value.length;j++){
     var element=value[j];
     fs[element] =  new Function(
-        "return function " + element + "(){ alert('"+element+"')}"
+        "return function " + element + "(){ }" //alert('"+element+"')
     )();
     fs[element]();
     }
 }
 
+/*
+function replaceupWithTeX(s) {
+	s = s.replace(/α/g, "{\\upalpha}");
+        s = s.replace(/β/g, "{\\upbeta}");
+        s = s.replace(/γ/g, "{\\upgamma}");
+        s = s.replace(/δ/g, "{\\updelta}");
+        s = s.replace(/ε/g, "{\\upepsilon}");
+        s = s.replace(/ζ/g, "{\\upzeta}");
+        s = s.replace(/η/g, "{\\upeta}");
+        s = s.replace(/θ/g, "{\\uptheta}");
+        s = s.replace(/ι/g, "{\\upiota}");
+        s = s.replace(/κ/g, "{\\upkappa}");
+        s = s.replace(/λ/g, "{\\uplambda}");
+        s = s.replace(/μ/g, "{\\upmu}");
+        s = s.replace(/ν/g, "{\\upnu}");
+        s = s.replace(/ξ/g, "{\\upxi}");
+        s = s.replace(/π/g, "{\\uppi}");
+        s = s.replace(/ρ/g, "{\\uprho}");
+        s = s.replace(/ς/g, "{\\upvarsigma}");
+        s = s.replace(/σ/g, "{\\upsigma}");
+        s = s.replace(/τ/g, "{\\uptau}");
+        s = s.replace(/υ/g, "{\\upupsilon}");
+        s = s.replace(/φ/g, "{\\upvarphi}");
+        s = s.replace(/χ/g, "{\\upchi}");
+        s = s.replace(/ψ/g, "{\\uppsi}");
+        s = s.replace(/ω/g, "{\\upomega}");
+	return s;
+}
+*/
+
+function replaceupgreekWithTeX(item) {
+	item.outerHTML = replaceupWithTeX(item.innerHTML);
+}
+function replaceMathbbWithTeX(item) {
+	item.outerHTML = "\\mathbb{" + item.innerHTML + "}";
+}
+function replaceMathfrakWithTeX(item) {
+	item.outerHTML = "\\mathfrak{" + item.innerHTML + "}";
+}
+function replaceMathcalWithTeX(item) {
+	item.outerHTML = "\\mathcal{" + item.innerHTML + "}";
+}
+function replaceMathsfWithTeX(item) {
+	item.outerHTML = "\\mathsf{" + item.innerHTML + "}";
+}
+function replaceMathttWithTeX(item) {
+	item.outerHTML = "\\mathtt{" + item.innerHTML + "}";
+}
+function replaceOverbraceWithTeX(item) {
+	item.outerHTML = "\\overbrace{" + item.innerHTML + "}";
+}
 function katexHtml2latex(m1) {
-        runQueryAll(m1,".brace-left>.underbrace", ssspecialgreeks);                                                                                                                                                                                                                                       
-        runQueryAll(m1,".brace-left>.overbrace", ssspecialgreeks);
-        runQueryAll(m1,".hide-tail>.xrightarrow", ssspecialgreeks);
-        runQueryAll(m1,".hide-tail>.xleftarrow", ssspecialgreeks);
-        runQueryAll(m1,".hide-tail>.xlongequal", ssspecialgreeks);
+        runQueryAll(m1,".brace-left>.underbrace", specialgreeks);                                                                                                                                                                                                                                       
+        runQueryAll(m1,".brace-left>.overbrace", specialgreeks);
+        runQueryAll(m1,".hide-tail>.xrightarrow", specialgreeks);
+        runQueryAll(m1,".hide-tail>.xleftarrow", specialgreeks);
+        runQueryAll(m1,".hide-tail>.xlongequal", specialgreeks);
+        runQueryAll(m1,".mord.mathbb", replaceMathbbWithTeX);
+        runQueryAll(m1,".mord.mathfrak", replaceMathfrakWithTeX);
+        runQueryAll(m1,".mord.mathcal", replaceMathcalWithTeX);
+        runQueryAll(m1,".mord.mathsf", replaceMathsfWithTeX);
+        runQueryAll(m1,".mord.mathtt", replaceMathttWithTeX);
+        runQueryAll(m1,".mord.mover.vlist-t.vlist-r.vlist.pstrut.mord", replaceOverbraceWithTeX);
         runQueryAll(m1,".mord.boldsymbol", replaceboldsymWithTeX);
 	runQueryAll(m1,".strut,.pstrut,.vlist-s,svg,.katex-mathml", removeTag);
 	runQueryAll(m1,".mspace.thinspace", replaceThinspaceWithTeX);
@@ -599,7 +670,7 @@ function showMath(th) {
 	mml1 = document.getElementById(mmlid);
 	mml = m1.querySelector(".katex-mathml");
 	mml1.innerHTML = mml.innerHTML;
-	t1.value = mml.querySelector("annotation").innerHTML;
+	//t1.value = mml.querySelector("annotation").innerHTML; // 06/03/2019
 }
 function showEditable(m1) {
 	showMath(m1);
@@ -621,7 +692,7 @@ function reloadEditedKaTeX() {
 		WeTeXDisplay = true;
 		if(m1.getAttribute("data-WeTeX") == "inline") { WeTeXDisplay = false; }
 		renderWeTeXMath(mh1, m1, WeTeXDisplay);
-		//mml1.innerHTML = m1.querySelector(".katex-mathml").innerHTML; //on 16-01-19
+		mml1.innerHTML = m1.querySelector(".katex-mathml").innerHTML; //on 16-01-19
 		var tag = setCursorPositionOnBox(m1);
 		if(tag == null) {
 			WeTeXListener.stop_listening();
@@ -634,6 +705,7 @@ function reloadEditedKaTeX() {
 }
 function loadKaTeX() {
 	var focusid = WeTeXConfig.majors["focusid"];
+	var focusid = WeTeXConfig.majors["focusid"];
 	var texid = WeTeXConfig.majors["texcode"];
 	var mmlid = WeTeXConfig.majors["mmlcode"];
 	var texbtnid = WeTeXConfig.majors["texbtn"];
@@ -644,7 +716,7 @@ function loadKaTeX() {
 	th1 = t1.value;
 	m1.innerHTML = "$$" + th1 + "$$";
 	WeTeXDisplay = true;
-	if(m1.getAttribute("data-WeTeX") == "inline") { WeTeXDisplay = false; }
+	//if(m1.getAttribute("data-WeTeX") == "inline") { WeTeXDisplay = false; }
 	renderWeTeXMath(th1, m1, WeTeXDisplay);
 	mml = m1.querySelector(".katex-mathml");
 	mml1.innerHTML = mml.innerHTML;
@@ -701,7 +773,7 @@ function bindKatexFuncs(lstn,name,key) {
 			    var size=prompt("Matrix size","2,3");
 			    var ktex = ktexMatrix(size);
 			    insertTextAtCursor(ktex);
-			    setTimeout(reloadEditedKaTeX, 10);
+			    setTimeout(reloadEditedKaTeX, 2);  // 10 is changed to 2 on 23/03/19.
 			    break;
 	      case "macros":
 			    var ls = autoCompleteList.greek_letters;
@@ -715,7 +787,7 @@ function bindKatexFuncs(lstn,name,key) {
 	      case "split":
 			    var ktex = "}{\\Box }{";
 			    insertTextAtCursor(ktex);
-			    setTimeout(reloadEditedKaTeX, 10);
+			    setTimeout(reloadEditedKaTeX, 2);  // 10 is changed to 2 on 23/03/19.
 			    console.log("enter key pressed!");
 			    break;
 	      default: break;
@@ -744,7 +816,7 @@ function ktexMatrix(sz) {
 function bindKatexKeys(lstn,key,value){
 	lstn.sequence_combo(key, function() {
 	    insertTextAtCursor(value);
-	    setTimeout(reloadEditedKaTeX, 10);
+	    setTimeout(reloadEditedKaTeX, 2);  // 10 is changed to 2 on 23/03/19.
 	    return false;
 	});
 }
@@ -800,4 +872,45 @@ function insertTextAtCursor(text) {
         document.selection.createRange().text = text;
     }
 }
+function travel(node) {
+    var result = '',
+        child, i;
+        
+    if (node.nodeType === 1) {
+        if (node.classList.length > 0) {
+            result = '{\\' + node.classList[0] + '}';
+        }
+        for (i = 0; i < node.childNodes.length; i += 1) {
+            child = node.childNodes[i];
+            result += travel(child);
+        }
+    }
+    
+    return result;
+}
+
+//File Downloaded
+function download(text, name, type) {
+            var a = document.getElementById("a");
+            a.style.display = "block";
+            var file = new Blob([text], {type: type});
+            a.href = URL.createObjectURL(file);
+            a.download = name;
+}
+//$ and $$ is created for Author defined Macros
+/*
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+    {left: "$$", right: "$$", display: true},
+    {left: "\\[", right: "\\]", display: true},
+    {left: "$", right: "$", display: false},
+    {left: "\\(", right: "\\)", display: false} ],
+    macros: {
+      "\\abs": "\\displaystyle\\left\\lvert #1 \\right\\rvert",
+      "\\xyz": "\\displaystyle\\sum^{#1}_{#2}",
+      }
+    });
+ });
+*/ 
 

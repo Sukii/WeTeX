@@ -1,39 +1,8 @@
-#WeTeX_mmlcode { font-size: 3; }
-.katex-mathml { font-size: 3; }
-#WeTeX_leaf {
-	background-color: lightgrey;
-}
-
-/*
-#WeTeX_m1 {
-	cursor: text;
-	caret-color: yellow;
-}
-#WeTeX_m1 *[contenteditable="true"] .mord {
-	border: thin solid;
-	box-shadow: 1px 2px;
-}
-#WeTeX_m1 *[contenteditable="true"] .mrel { 
-	border: thin solid;
-	box-shadow: 1px 2px;
-}
-#WeTeX_m1 *[contenteditable="true"] span.mspace {
-	border: thin solid;
-	box-shadow: 1px 2px;
-}
-*/
-
+#WeTeX_mmlcode { display: none; }
+#WeTeX_m1[contenteditable="true"] span:not(:empty) {}
+#WeTeX_m1[contenteditable="true"] span.mspace {}
 #WeTeX_m1:before { content: "▶"; }
 #WeTeX_m1:after { content: "◀"; }
-.content {
-	width: 60%;
-	float: left;
-	font-size:125%;
-	text-align: justify;
-}
-.widgets {
-	width: 40%;
-	text-align: right;
-	float: right;
-}
+.content { width: 100%; float: left; font-size:125%; text-align: justify;}
+.widgets { width: 40%; text-align: right; float: right; }
 

@@ -1,4 +1,4 @@
-/* stylelint-disable font-family-no-missing-generic-family-keyword */
+    /* stylelint-disable font-family-no-missing-generic-family-keyword */
 @font-face {
   font-family: 'KaTeX_AMS';
   src: url(fonts/KaTeX_AMS-Regular.woff2) format('woff2'), url(fonts/KaTeX_AMS-Regular.woff) format('woff'), url(fonts/KaTeX_AMS-Regular.ttf) format('truetype');
@@ -134,7 +134,7 @@
   padding: 0;
   border: 0;
   height: 1px;
-  width: 1px;
+  /*width: 1px;*/
   overflow: hidden;
 }
 .katex .katex-html {
@@ -146,8 +146,8 @@
 .katex .base {
   position: relative;
   display: inline-block;
-  white-space: nowrap;
-  width: min-content;
+  /*white-space: wrap;*/
+  /*width: min-content;*/
 }
 .katex .strut {
   display: inline-block;
@@ -170,6 +170,11 @@
 .katex .mathdefault {
   font-family: KaTeX_Math;
   font-style: italic;
+  white-space: wrap;
+  /*width: min-content;*/
+}
+.katex .base .mbin{
+ white-space: wrap;   
 }
 .katex .mathit {
   font-family: KaTeX_Main;
@@ -991,7 +996,7 @@
 .katex-display > .katex {
   display: block;
   text-align: center;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
 }
 .katex-display > .katex > .katex-html {
   display: block;
