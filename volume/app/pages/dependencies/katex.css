@@ -1,4 +1,4 @@
-    /* stylelint-disable font-family-no-missing-generic-family-keyword */
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
 @font-face {
   font-family: 'KaTeX_AMS';
   src: url(fonts/KaTeX_AMS-Regular.woff2) format('woff2'), url(fonts/KaTeX_AMS-Regular.woff) format('woff'), url(fonts/KaTeX_AMS-Regular.ttf) format('truetype');
@@ -128,13 +128,16 @@
 .katex * {
   -ms-high-contrast-adjust: none !important;
 }
+.katex .katex-version::after {
+  content: "0.11.1";
+}
 .katex .katex-mathml {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
   padding: 0;
   border: 0;
   height: 1px;
-  /*width: 1px;*/
+  width: 1px;
   overflow: hidden;
 }
 .katex .katex-html {
@@ -146,8 +149,8 @@
 .katex .base {
   position: relative;
   display: inline-block;
-  /*white-space: wrap;*/
-  /*width: min-content;*/
+  white-space: nowrap;
+  width: min-content;
 }
 .katex .strut {
   display: inline-block;
@@ -170,11 +173,6 @@
 .katex .mathdefault {
   font-family: KaTeX_Math;
   font-style: italic;
-  white-space: wrap;
-  /*width: min-content;*/
-}
-.katex .base .mbin{
- white-space: wrap;   
 }
 .katex .mathit {
   font-family: KaTeX_Main;
@@ -334,10 +332,6 @@
 .katex .sqrt > .root {
   margin-left: 0.27777778em;
   margin-right: -0.55555556em;
-}
-.katex .sizing,
-.katex .fontsize-ensurer {
-  display: inline-block;
 }
 .katex .sizing.reset-size1.size1,
 .katex .fontsize-ensurer.reset-size1.size1 {
@@ -874,12 +868,7 @@
 }
 .katex .mtable .vertical-separator {
   display: inline-block;
-  margin: 0 -0.025em;
-  border-right: 0.05em solid;
   min-width: 1px;
-}
-.katex .mtable .vs-dashed {
-  border-right: 0.05em dashed;
 }
 .katex .mtable .arraycolsep {
   display: inline-block;
@@ -915,6 +904,13 @@
 }
 .katex svg path {
   stroke: none;
+}
+.katex img {
+  border-style: none;
+  min-width: 0;
+  min-height: 0;
+  max-width: none;
+  max-height: none;
 }
 .katex .stretchy {
   width: 100%;
@@ -996,7 +992,7 @@
 .katex-display > .katex {
   display: block;
   text-align: center;
-  /*white-space: nowrap;*/
+  white-space: nowrap;
 }
 .katex-display > .katex > .katex-html {
   display: block;
