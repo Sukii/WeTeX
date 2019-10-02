@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KaTeX editor without WeTeX</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="dependencies/katex.css" />
+    <script src="dependencies/katex.min.js"></script>
+    <script src="dependencies/keypress-2.1.5.min.js"></script>
+    <!--<script src="src/wetex.js"></script>
+    <script src="src/wetex.css"></script>-->
+    <script defer src="dependencies/auto-render.min.js" onload="renderMathInElement(document.body);" type="0e8fa1c59dd730b1d31139eb-text/javascript"></script>
+    <script type="0e8fa1c59dd730b1d31139eb-text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+  {left: "$$", right: "$$", display: true},
+  {left: "$", right: "$", display: false},
+  {left: "\\(", right: "\\)", display: false},
+  {left: "\\[", right: "\\]", display: true}
+]
+        });
+    });
+</script>
+    <noscript>
+         <h1>Sorry...JavaScript is needed for KaTeX Projects.</h1>
+    </noscript> 
+</head>
+<body>
+<h1>This is a Test Page for rendering and this is a Test Page for rendering for the testing purpose only</h1>
+
+<p>Here is a long line of text. Here is a long line of text. Here is a $x+y+z+w+a+b+c$</p>
+
+<p>$\displaystyle a+b+c+d+e+f+g+h+i+j+k+l+m+n+o+p+q+r+s+t+u+v+w+x+y+z+\frac{a}{b}+\frac{c}{d}+\frac{e}{f}+\frac{g}{h}+\frac{i}{j}+\frac{k}{l}+\frac{m}{n}+\frac{o}{p}+\frac{q}{r}+\frac{s}{t}+\frac{u}{v}+\frac{w}{x}+\frac{y}{z}$</p>
+
+<p>$\displaystyle\mathcal{D}_{\scriptsize{{f}}} \textsf{abc} \Bigg({\in}\Bigg):=\Bigg({δ}+{1}\Bigg)\Bigg[{{M}}_{\scriptsize{{11}}}\Bigg({0},{\in}\Bigg)\div {H}_{\scriptsize{{11}}}\Bigg({0},{\in}\Bigg)+\Bigg({1}+{H}_{\scriptsize{{11}}}^{\scriptsize{{j}+{1}}}\Bigg({0},{\in}\Bigg)\Bigg){M}_{\scriptsize{{11}}}^{\scriptsize{{{′+}}}}\Bigg({0},{\in}\Bigg)\Bigg ]  \times \Bigg[{H}_{\scriptsize{{22}}}^{\scriptsize{{{′}}{j}+{1}}}\Bigg({0}\Bigg){{M}}_{\scriptsize{{22}}}\Bigg({0}\Bigg)+\Bigg({1}+{H}_{\scriptsize{{22}}}^{\scriptsize{{j}+{1}}}\Bigg({0}\Bigg)\Bigg){M}_{\scriptsize{{22}}}^{\scriptsize{{{′}}}}\Bigg({0}\Bigg)\Bigg]−{μ}{k}{\mathcal{D}}_{\scriptsize{{m}}}\Bigg({\in}\Bigg),$</p>
+
+<p>and long equations....</p>
+
+<p>$\displaystyle(a^x)' = \lim_{\Delta x \to 0} \frac{a^{x + \Delta x} - a^x}{\Delta x} = \lim_{\Delta x \to 0} \frac{a^x (a^{\Delta x} - 1)}{\Delta x} = a^x \lim_{\Delta x \to 0} \frac{a^{\Delta x} - 1}{\Delta x} = \begin{bmatrix} \frac1{n} = a^{\Delta x} - 1 \\ \Delta x = \log_a(\frac1{n} +1) \\ n \to \infty \end{bmatrix} = {a^x \lim_{n \to \infty} \frac1{n\log_a (\frac1{n} +1)}} ={\frac{a^x}{\log_a \lim\limits_{n \to \infty} (\frac1{n} +1)^n}} = {\frac{a^x}{\log_a e}} = a^x \ln a$</p>
+
+<script src="dependencies/rocket-loader.min.js" data-cf-settings="0e8fa1c59dd730b1d31139eb-|49" defer=""></script>
+</body>
+</html>
+
+<!--
+<div class="katex-display">
+
+<div class="katex.base">
+<p><font color="blue">\((aaa^x)' = \lim_{\Delta x \to 0} \frac{a^{x + \Delta x} - a^x}{\Delta x} = \lim_{\Delta x \to 0} \frac{a^x (a^{\Delta x} - 1)}{\Delta x} = a^x \lim_{\Delta x \to 0} \frac{a^{\Delta x} - 1}{\Delta x} = \begin{bmatrix} \frac1{n} = a^{\Delta x} - 1 \ \Delta x = \log_a(\frac1{n} +1) \ n \to \infty \end{bmatrix} = {a^x \lim_{n \to \infty} \frac1{n\log_a (\frac1{n} +1)}} ={\frac{a^x}{\log_a \lim\limits_{n \to \infty} (\frac1{n} +1)^n}} = {\frac{a^x}{\log_a e}} = a^x \ln a\)</font></p>
+</div>
+</div><br/><br/><br/>
+
+<p><font color="blue">\((bbb^x)' = \lim_{\Delta x \to 0} \frac{a^{x + \Delta x} - a^x}{\Delta x} = \lim_{\Delta x \to 0} \frac{a^x (a^{\Delta x} - 1)}{\Delta x} = a^x \lim_{\Delta x \to 0} \frac{a^{\Delta x} - 1}{\Delta x} = \begin{bmatrix} \frac1{n} = a^{\Delta x} - 1 \ \Delta x = \log_a(\frac1{n} +1) \ n \to \infty \end{bmatrix} = {a^x \lim_{n \to \infty} \frac1{n\log_a (\frac1{n} +1)}} ={\frac{a^x}{\log_a \lim\limits_{n \to \infty} (\frac1{n} +1)^n}} = {\frac{a^x}{\log_a e}} = a^x \ln a\)</font></p>
+
+<p><font color="magenta">\(\displaystyle{ Q(\lambda,\hat{\lambda}) = -\frac{1}{2} P{(O \mid \lambda )} \sum_s \sum_m \sum_t \gamma_m^{(s)} (t) \Bigg(n (2 \pi )
++ \log \Bigg| C_m^{(s)} \Bigg| + \Bigg( \mathbf{o}_t - \hat{\mu}_m^{(s)} \Bigg) ^T C_m^{(s)-1} \Bigg(\mathbf{o}_t - \hat{\mu}_m^{(s)}\Bigg) \Bigg)}\)</font></p>
+<p>and</p>
+
+<p><font color="blule">\({\displaystyle 1 +  \frac{q^2}{(1-q)}+\frac{q^6}{(1-q)(1-q^2)}+\cdots = \prod_{j=0}^{\infty}\frac{1}{(1-q^{5j+2})(1-q^{5j+3})}, \quad\quad \text{for }\lvert q\rvert<1.}\)</font></p>
+
+
+
+<!--<p>a+b+c+d+a b c d e f g h i j k l m n o p q r s t u v w x y z z y x w v u t s r q p o n m l k j i h g f e d c b a a b c d e f g h i j k l m n o p q r s t u v w x y z z y x w v t u s r q p o n m l k j i f e d c b a e+f+g+h+i+j+k+l+q+r+s+t+u+v+w+x+y+z+y+x+w +u+v+t+s+r+q+p+o+n+m+l+k+j+i+h+g+f+e+d+c+b+a</p>
+<p><font color="blue">\(a+b+c+d+a\ b\ c\ d\ e\ f\ g\ h\ i\ j\ k\ l\ m\ n\ o\ p\ q\ r\ s\ t\ u\ v\ w\ x\ y\ z\ \ z\ y\ x\ w\ v\ u\ t\ s\ r\ q\ p\ o\ n\ m\ l\ k\ j\ i\ h\ g\ f\ e\ d\ c\ b\ a\ \ a\ b\ c\ d\ e\ f\ g\ h\ i\ j\ k\ l\ m\ n\ o\ p\ q\ r\ s\ t\ u\ v\ w\ x\ y\ z\ z\ y\ x\ w\ v\ t\ u\ s\ r\ q\ p\ o\ n\ m\ l\ k\ j\ i\ f\ e\ d\ c\ b\ a\ e+f+g+h+i+j+k+l+ \sum^{i=1}_{k=0} +q+r+s+t+u+v+w+x+y+z+y+x+w+u+v+t+s+r+q+p+o+n+m+l+k+j+i+h+g+f+e+d+c+b+a\)</font></p>
+<p><font size="7"><font color="violet">Pneumonoultramicroscopicsilicovolcanoconiosis.</font></font></p>
+<p><font color="magenta">\(%\begin{dmath}
+  Q(\lambda,\hat{\lambda}) = -\frac{1}{2} P{(O \mid \lambda )} \sum_s \sum_m \sum_t \gamma_m^{(s)} (t) \Bigg( n \log(2 \pi ) + \log \Bigg| C_m^{(s)} \Bigg| + \Bigg( \mathbf{o}_t - \hat{\mu}_m^{(s)} \Bigg) ^T C_m^{(s)-1} \Bigg(\mathbf{o}_t - \hat{\mu}_m^{(s)}\Bigg) \Bigg)
+%\end{dmath}
+\)</font></p>
+<p><font color="magenta">$$%\begin{dmath}
+  Q(\lambda,\hat{\lambda}) = -\frac{1}{2} P{(O \mid \lambda )} \sum_s \sum_m \sum_t \gamma_m^{(s)} (t) \Bigg( n \log(2 \pi ) + \log \Bigg| C_m^{(s)} \Bigg| + \Bigg( \mathbf{o}_t - \hat{\mu}_m^{(s)} \Bigg) ^T C_m^{(s)-1} \Bigg(\mathbf{o}_t - \hat{\mu}_m^{(s)}\Bigg) \Bigg)
+%\end{dmath}
+$$</font></p>-->
+
+
+<!-- <p><font color="green"><math id="si86.xml"><mrow><mo stretchy="false">[</mo><msub><mover accent="true"><mi>G</mi><mo>˜</mo></mover><mover accent="true"><mi>δ</mi><mo>˜</mo></mover></msub><mo stretchy="false">(</mo><msub><mi>e</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">[</mo><mo>&lbrace;</mo><mo stretchy="false">(</mo><msub><mi>a</mi><mn>1</mn></msub><mo>|</mo><mo stretchy="false">(</mo><mn>0.3,0.5</mn><mo stretchy="false">)</mo><mo>,</mo><mtext>&thinsp;</mtext><msub><mi>a</mi><mn>2</mn></msub><mo>|</mo><mo stretchy="false">(</mo><mn>0.2,0.7</mn><mo stretchy="false">)</mo><mo>,</mo><mtext>&thinsp;</mtext><msub><mi>a</mi><mn>3</mn></msub><mo>|</mo><mo stretchy="false">(</mo><mn>0.3,0.5</mn><mo stretchy="false">)</mo><mo>,</mo><mtext>&thinsp;</mtext><msub><mi>a</mi><mn>4</mn></msub><mo>|</mo><mo stretchy="false">(</mo><mn>0.2,0.6</mn><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>,</mo><mtext>&thinsp;</mtext><mo stretchy="false">(</mo><mn>0.5,0.4</mn><mo stretchy="false">)</mo><mo>&rbrace;</mo><mo>,</mo><msub><mover accent="true"><mi>G</mi><mo>˜</mo></mover><mover accent="true"><mi>δ</mi><mo>˜</mo></mover></msub><mo stretchy="false">(</mo><msub><mi>e</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>&lbrace;</mo><mo stretchy="false">(</mo><msub><mi>a</mi><mn>1</mn></msub><mo>|</mo><mo stretchy="false">(</mo><mn>0.6,0.3</mn><mo stretchy="false">)</mo><mo>,</mo><mtext>&thinsp;</mtext><msub><mi>a</mi><mn>2</mn></msub><mo>|</mo><mo stretchy="false">(</mo><mn>0.4,0.4</mn><mo stretchy="false">)</mo><mo>,</mo><mtext>&thinsp;</mtext><msub><mi>a</mi><mn>3</mn></msub><mo>|</mo><mo stretchy="false">(</mo><mn>0.1,0.8</mn><mo stretchy="false">)</mo><mo>,</mo><msub><mi>a</mi><mn>4</mn></msub><mo>|</mo><mo stretchy="false">(</mo><mn>0.5,0.3</mn><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>,</mo><mtext>&thinsp;</mtext><mo stretchy="false">(</mo><mn>0.1,0.8</mn><mo stretchy="false">)</mo><mo>&rbrace;</mo><mo stretchy="false">]</mo></mrow></math></font></p>
+<p><font color="blue">\(\begin{array}{l}[{\widetilde{{G}}}_{\scriptsize{\widetilde{{δ}}}}({{e}}_{\scriptsize{{1}}})=[\Bigg\{({{a}}_{\scriptsize{{1}}}\Bigg\vert({0.3,0.5}),\textrm{ }{{a}}_{\scriptsize{{2}}}\Bigg\vert({0.2,0.7}),\textrm{ }{{a}}_{\scriptsize{{3}}}\Bigg\vert({0.3,0.5}),\textrm{ }{{a}}_{\scriptsize{{4}}}\Bigg\vert({0.2,0.6})),({0.5,0.4})\Bigg\},{\widetilde{{G}}}_{\scriptsize{\widetilde{{δ}}}}({{e}}_{\scriptsize{{1}}})\Bigg\{({{a}}_{\scriptsize{{1}}}\Bigg\vert({0.6,0.3}),\textrm{ }{{a}}_{\scriptsize{{2}}}\Bigg\vert({0.4,0.4}),\textrm{ }{{a}}_{\scriptsize{{3}}}\Bigg\vert({0.1,0.8}),{{a}}_{\scriptsize{{4}}}\Bigg\vert({0.5,0.3})),\textrm{ }({0.1,0.8})\Bigg\}]\end{array}\)</font></p>-->
+<!--<p>donde <span style="color:blue;">\( x_{1,2} \)</span> representa cualquiera de las dos soluciones
+<span style="color:blue;">\( x_{1} \)</span> o <span style="color:blue;">\( x_{2} \)</span></p>-->
+<!--<p>sine function in spanish using macro</p>
+<p>$$\\sen x=1$$</p>
+<p>real numbers \(\R\) work</p>
+<p>sine function in spanish in a parragraph \( y= \\sen x \)</p>
+<p>sine function in spanish in a parragraph using <code>$..$</code> $y= \sen x $</p>
+<p>the lower common multiple \(\\lcm\) o sea esto \( \\lcm \)
+y esta es la diferencial </p>
+<p> el valor absoluto es $\\abs{x}$ o sea \( \\abs{x}\) o bien
+$$\\abs{x}=y$$
+</p>
+<p>
+When \(a \ne 0\), there are two solutions to \(a{\color{red}{x^2}} + bx + c = 0\) and they are $${\color{blue}{x_{1,2}}}={-b \pm \sqrt{{\color{red}{b^2}}-4ac} \over 2a}.$$
+</p>
+<script src="dependencies/rocket-loader.min.js" data-cf-settings="0e8fa1c59dd730b1d31139eb-|49" defer=""></script>
+</body>
+</html>-->
+<!--<h1 align="center">KaTeX editor WYSIWYG</h1>
+<div>Move over math equation (<span class="math">y=x_i^3</span>) to make it <b>TeX-editable</b> (and <b>Double-Click</b> to get to WYSIWYG editing and refresh to get back to TeX-editing).</div>
+<p>
+<div>The below one was introduced to show how to insert a blank equation:</div>
+<div><span class="watex-display">$${\,}{\Box}{\,}$$</span></div>
+<div>A full fledged equation is shown below:</div>
+<div></div>
+<div></div>
+<div><span class="watex-display">$$\text{\`{a}}=\acute{x}=\text{\'{a}}=\grave{x}=\sqrt{x}=\sin x=\sqrt[3]{y}=\Bigg\{\frac{a+b}{c+d+\frac{a+b}{c+\frac{a+b}{c+\frac{a+b}{c+\frac{a+b}{c+d}}}}}\Bigg\}=\Bigg\{\frac{a+b}{c+d}\Bigg\}=\begin{pmatrix}
+   a & b \\
+   c & d
+\end{pmatrix}$$</span></div>
+<div>is then followed by another piece of text and another inline math (<span class="watex">$$\dot{a} = 1/(1+x)$$</span>) as shown here.</div>
+</div>
+
+<div class="widgets">
+	<input type="textbox" id="WaTeX_texcode" value="" size="50"/>
+	<input type="button" id="WaTeX_texbtn" value="submit-TeX" onclick="loadKaTeX()"/><br />
+	<textarea readonly="" id="WaTeX_mmlcode" rows="50" cols="50"></textarea>
+</div>
+<script>
+	renderAllWaTeXMath();
+	var watexListener = new window.keypress.Listener();
+	setWaTeXKeyEvents(watexListener,watexConfig);
+	console.log("keys set...");
+	console.log("watex listeners set...");
+	watexListener.stop_listening();
+	
+</script>
+</body>
+</html>-->
