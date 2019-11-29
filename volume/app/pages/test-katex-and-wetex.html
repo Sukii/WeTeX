@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>KaTeX &amp; WeTeX Editor</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="dependencies/katex.min.css">
+	<link rel="stylesheet" href="src/KaTeX-Ext.css">
+	<script src="dependencies/katex.min.js"></script>
+	<script src="dependencies/keypress-2.1.5.min.js"></script>
+	<script src="src/WeTeX.js"></script>
+	<script defer src="dependencies/auto-render.min.js" onload="renderMathInElement(document.body);" type="0e8fa1c59dd730b1d31139eb-text/javascript"></script>
+        <script type="0e8fa1c59dd730b1d31139eb-text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+  {left: "$$", right: "$$", display: true},
+  {left: "$", right: "$", display: true},
+  {left: "\\(", right: "\\)", display: false},
+  {left: "\\[", right: "\\]", display: true}
+]
+        });
+    });
+    </script>
+    <script src="dependencies/rocket-loader.min.js" data-cf-settings="0e8fa1c59dd730b1d31139eb-|49" defer=""></script>
+    <noscript>
+         <h1>Sorry...JavaScript is needed for WeTeX Projects.</h1>
+    </noscript> 
+</head>
+<body>
+<h1 align="center">WeTeX WYSIWYG Editor</h1>
+
+<h2>This is a Test Page for rendering and this is a Test Page for rendering for the testing purpose only</h2>
+
+<div class="content" ondblclick="makeEditableAllWeTeX(WeTeXListener);">
+
+<div>Move over Math Inline <i>M</i> Equation (<span class="WeTeX">$$y=x_i^3$$</span>) Single Clik to make it <b>TeX-editable</b>.</div>
+
+<div>The below one was introduced to show how to insert a blank equation:</div>
+
+<div align="center"><span class="WeTeX-display">$${\,}{\Box}{\,}$$</span></div>
+
+<div>The Long Equation is...</div>
+
+<p align="center"><span class="WeTeX-display">$\displaystyle \textrm{M}\mathcal{D}_{\scriptsize{{f}}} \mathsf{abc} \left({\in}\right):=\left({δ}+{1}\right)\left[{{M}}_{\scriptsize{{11}}}\left({0},{\in}\right)\div {H}_{\scriptsize{{11}}}\left({0},{\in}\right)+\left({1}+{H}_{\scriptsize{{11}}}^{\scriptsize{{j}+{1}}}\left({0},{\in}\right)\right){M}_{\scriptsize{{11}}}^{\scriptsize{{{′+}}}}\left({0},{\in}\right)\right]  \times \left[{H}_{\scriptsize{{23452}}}^{\scriptsize{{{′}}{j}+{1}}}\left({0}\right){{M}}_{\scriptsize{{22}}}\left({0}\right)+\left({1}+{H}_{\scriptsize{{22}}}^{\scriptsize{{j}+{1}}}\left({0}\right)\right){M}_{\scriptsize{{22}}}^{\scriptsize{{{′}}}}\left({0}\right)\right]−\mathrm{μ}\textrm{μ}{k}{\mathcal{D}}_{\scriptsize{{m}}}\left({\in}\right) a \xLeftrightarrow{} b,$</span></p>
+
+<div class="widgets">
+	<input type="textbox" id="WeTeX_texcode" value="" size="50"/>
+	<input type="button" id="WeTeX_texbtn" value="submit-TeX" onclick="loadKaTeX()"/><br />
+	<textarea readonly="" id="WeTeX_mmlcode" rows="50" cols="50"></textarea>
+</div>
+<script>
+	renderAllWeTeXMath();
+	var WeTeXListener = new window.keypress.Listener();
+	setWeTeXKeyEvents(WeTeXListener,WeTeXConfig);
+	console.log("keys set...");
+	console.log("WeTeX listeners set...");
+	WeTeXListener.stop_listening();
+	
+</script>
+</body>
+</html>
+<!--
+<p>and long equations...</p>
+
+<p align="center"><span class="WeTeX-display">$\displaystyle \begin{array}{l}\begin{array}{lll}&amp; &amp; \displaystyle {{I}}_{\scriptsize{{1}}}\sum _{{j}={1}}^{{M}}{\ddot{{q}}}_{\scriptsize{{j}}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{ϕ}}_{\scriptsize{{j}}}\textrm{d}{x}\bigg )\hskip0.16em\\&amp; &amp; \displaystyle \hskip1em+\hskip0.16em\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg \{{\ddot{{q}}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}\bigg [∫_{\scriptsize{{1}}}^{\scriptsize{{x}}}{{I}}_{\scriptsize{{1}}}∫_{\scriptsize{{0}}}^{\scriptsize{{x}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{j}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{k}}}\textrm{d}{x}{d}{x}\bigg ]{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\bigg \}\hskip0.16em\\&amp; &amp; \displaystyle \hskip1em+\hskip0.16em\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg \{{\dot{{q}}}_{\scriptsize{{j}}}{\dot{{q}}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}\bigg [∫_{\scriptsize{{1}}}^{\scriptsize{{x}}}{{I}}_{\scriptsize{{1}}}∫_{\scriptsize{{0}}}^{\scriptsize{{x}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{j}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{k}}}\textrm{d}{x}\textrm{d}{x}\bigg ]{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\bigg \}\hskip0.16em\\&amp; &amp; \displaystyle \hskip1em+\hskip0.16em\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg \{{\ddot{{q}}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}\bigg [{{I}}_{\scriptsize{{1}}}∫_{\scriptsize{{0}}}^{\scriptsize{{x}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{j}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{k}}}{d}{x}\bigg ]{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\bigg \}\hskip0.16em\\&amp; &amp; \displaystyle \hskip1em+\hskip0.16em\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg \{{\dot{{q}}}_{\scriptsize{{j}}}{\dot{{q}}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}\bigg [{{I}}_{\scriptsize{{1}}}∫_{\scriptsize{{0}}}^{\scriptsize{{x}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{j}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{k}}}\textrm{d}{x}\bigg ]{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\bigg \}\hskip0.16em\\&amp; &amp; \displaystyle \hskip1em+\hskip0.16em{{d}}_{\scriptsize{{11}}}\bigg [\sum _{{j}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}+\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{k}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg ]\\&amp; &amp; \displaystyle \hskip1em+\hskip0.16em{{d}}_{\scriptsize{{11}}}\bigg [{4}\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\hskip0.16em\bigg [{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{k}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{l}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\bigg ]+\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg [{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{k}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\bigg ]\hskip0.16em\bigg ]\\&amp; &amp; \displaystyle \hskip1em+\hskip0.16em{{a}}_{\scriptsize{{55}}}{{{l}}_{\scriptsize{{s}}}}{^{\scriptsize{{2}}}}\bigg [\sum _{{j}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}+\frac{{1}}{{4}}\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{k}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg ]\\&amp; &amp; \displaystyle \hskip1em+\hskip0.16em{{a}}_{\scriptsize{{55}}}{{{l}}_{\scriptsize{{s}}}}{^{\scriptsize{{2}}}}\bigg [\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em \hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{k}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}+\frac{{1}}{{4}}\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{k}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg ]\\&amp; &amp; \displaystyle \hskip1em−\hskip0.16em\frac{{3}{{b}}_{\scriptsize{{55}}}{{{l}}_{\scriptsize{{s}}}}{^{\scriptsize{{2}}}}}{{2}{η}}\bigg [\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{k}}}\hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}+\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}}}}}_{\scriptsize{{k}}}\hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}\bigg ]\\&amp; &amp; \displaystyle \hskip1em−\hskip0.16em\frac{{{d}}_{\scriptsize{{55}}}{{{l}}_{\scriptsize{{s}}}}{^{\scriptsize{{2}}}}}{{{η}}{^{\scriptsize{{2}}}}}\bigg [\frac{{1}}{{4}}\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{k}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}+\frac{{3}}{{2}}\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{k}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg ]\\&amp; &amp; \displaystyle \hskip1em−\hskip0.16em\frac{{{d}}_{\scriptsize{{55}}}{{{l}}_{\scriptsize{{s}}}}{^{\scriptsize{{2}}}}}{{{η}}{^{\scriptsize{{2}}}}}\bigg [\frac{{5}}{{2}}\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}}}}}_{\scriptsize{{k}}}{{{ϕ}}{^{\scriptsize{{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}+\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em \hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{k}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg ]\\&amp; &amp; \displaystyle \hskip1em−\hskip0.16em\frac{{{d}}_{\scriptsize{{55}}}{{{l}}_{\scriptsize{{s}}}}{^{\scriptsize{{2}}}}}{{{η}}{^{\scriptsize{{2}}}}}\bigg [\frac{{3}}{{4}}\sum _{{j}={1}}^{{M}}\sum _{{k}={1}}^{{M}}\sum _{{l}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}}}}}_{\scriptsize{{j}}}\hskip0.16em{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}}}}}_{\scriptsize{{k}}}{{{ϕ}}{^{\scriptsize{{{′}}{{′}}{{′}}}}}}_{\scriptsize{{l}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{{q}}_{\scriptsize{{j}}}{{q}}_{\scriptsize{{k}}}{{q}}_{\scriptsize{{l}}}\bigg ]\\&amp; &amp; \displaystyle \hskip1em+\hskip0.16em{c}\sum _{{j}={1}}^{{M}}\bigg (∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{ϕ}}_{\scriptsize{{j}}}\hskip0.16em \hskip0.16em\textrm{d}{x}\bigg )\hskip0.16em{\dot{{q}}}_{\scriptsize{{j}}}+∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{c}{{b}}_{\scriptsize{{0}}}{Ω}\textrm{cos}\bigg ({Ω}\hskip0.16em{t}\bigg )\hskip0.16em \hskip0.16em\textrm{d}{x}−∫_{\scriptsize{{0}}}^{\scriptsize{{1}}}{{ϕ}}_{\scriptsize{{i}}}{{I}}_{\scriptsize{{1}}}{{b}}_{\scriptsize{{0}}}{{Ω}}{^{\scriptsize{{2}}}}\textrm{sin}\bigg ({Ω}\hskip0.16em{t}\bigg )\hskip0.16em \hskip0.16em\textrm{d}{x}={0}.\end{array}\end{array}$</span></p>
+
+<p>and long equations....</p>
+
+<p><span class="WeTeX-display">$\displaystyle(a^x)' = \lim_{\Delta x \to 0} \frac{a^{x + \Delta x} - a^x}{\Delta x} = \lim_{\Delta x \to 0} \frac{a^x (a^{\Delta x} - 1)}{\Delta x} = a^x \lim_{\Delta x \to 0} \frac{a^{\Delta x} - 1}{\Delta x} = \begin{bmatrix} \frac1{n} = a^{\Delta x} - 1 \\ \Delta x = \log_a(\frac1{n} +1) \\ n \to \infty \end{bmatrix} = {a^x \lim_{n \to \infty} \frac1{n\log_a (\frac1{n} +1)}} ={\frac{a^x}{\log_a \lim\limits_{n \to \infty} (\frac1{n} +1)^n}} = {\frac{a^x}{\log_a e}} = a^x \ln a$</span></p>
+
+<div class="widgets">
+	<input type="textbox" id="WeTeX_texcode" value="" size="50"/>
+	<input type="button" id="WeTeX_texbtn" value="submit-TeX" onclick="loadKaTeX()"/><br />
+	<textarea readonly="" id="WeTeX_mmlcode" rows="50" cols="50"></textarea>
+</div>
+<script>
+	renderAllWeTeXMath();
+	var WeTeXListener = new window.keypress.Listener();
+	setWeTeXKeyEvents(WeTeXListener,WeTeXConfig);
+	console.log("keys set...");
+	console.log("WeTeX listeners set...");
+	WeTeXListener.stop_listening();
+	
+</script>
+</body>
+</html>
+-->
