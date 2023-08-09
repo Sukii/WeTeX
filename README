@@ -1,19 +1,5 @@
-WeTeX version 0.15
-
-Just two files wetex.js and wetex.css to be added for it to work.
-
-There are two external dependencies: (KaTeX https://github.com/Khan/KaTeX) and another keypress (https://github.com/dmauro/Keypress) library.
-
-Another file test.html added as a demonstration of usage.
-Key bindings are easily customizable through the wetexConfig parameter.
-The default keys are described in an HTML file
-
-We provide two modes of editing: 
-
-1. TeX-editing for TeX users
-2. WYSIWYG editing for non-TeX users (which gets triggered on double-click)
-
-However, we think that the WYSIWYG editing is quite close in spirit to TeX so even the TeX users will find it useful and will also provide an useful introduction to TeX beginners.
-
+# WeTeX
+Looking for a WYSIWYG editor WeTeX?
+Please use <a href="https://cqrl.ai/melqiue">Melique</a> (not open source yet).
 
  
