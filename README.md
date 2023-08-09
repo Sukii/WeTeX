@@ -1,5 +1,5 @@
 # WeTeX
 Looking for a WYSIWYG editor WeTeX?
-Please use <a href="https://cqrl.ai/melqiue">Melique</a> (not open source yet).
+Please use <a href="https://cqrl.ai/melique">Melique</a> (not open source yet).
 
  
